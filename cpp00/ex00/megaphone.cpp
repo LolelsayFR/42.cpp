@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:12:27 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/20 04:47:46 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/20 05:29:59 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int	main(int argc, char *argv[])
 {
-	std::string s;
+	std::string	s;
+
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
