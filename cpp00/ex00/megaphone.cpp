@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 01:12:27 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/20 05:29:59 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:21:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <bits/stdc++.h>
 
 int	main(int argc, char *argv[])
 {
@@ -25,7 +24,8 @@ int	main(int argc, char *argv[])
 	for (int i = 1; i < argc; i++)
 	{
 		s = argv[i];
-		std::transform(s.begin(), s.end(), s.begin(), toupper);
+		for (int j = 0; s[j] != '\0'; j++)
+			s[j] = std::toupper(s[j]);
 		std::cout << s;
 	}
 	std::cout << std::endl;
