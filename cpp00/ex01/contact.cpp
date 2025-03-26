@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:15:49 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/21 10:16:26 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:55:37 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.class.hpp"
+#include "contact.hpp"
 
 Contact::Contact(void)
 {

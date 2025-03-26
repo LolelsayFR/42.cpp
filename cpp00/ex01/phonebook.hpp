@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 06:01:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/21 09:27:16 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:55:26 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
-# include "contact.class.hpp"
+# include "contact.hpp"
 
 # define PF_PHBO "\e[48;2;70;70;70;1m PhoneBook \e[0m : "
 # define PF_ADD "\e[48;2;0;70;0;1m Add \e[0m"

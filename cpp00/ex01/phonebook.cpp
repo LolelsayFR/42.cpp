@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:05:45 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/21 10:17:56 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:24:41 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "phonebook.hpp"
 
 Phonebook::Phonebook(void)
 {
@@ -32,35 +32,35 @@ void Phonebook::add_loop(void)
 	std::string	dark_secret = "";
 	std::string	phone_number = "";
 
-	while (name.empty() || is_only_spacer(name))
+	while (name.empty() || ::is_only_spacer(name) == true)
 	{
 		std::cout << PF_ADD << " [" << this->count % 8 + 1 << "] Firstname : ";
 		if (!std::getline (std::cin, name))
-			break;
+			return;
 	}
-	while (surname.empty())
+	while (surname.empty() || ::is_only_spacer(surname) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Nickname : ";
 		if (!std::getline (std::cin, surname))
-			break;
+			return;
 	}
-	while (family_name.empty())
+	while (family_name.empty() || ::is_only_spacer(family_name) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Lastname : ";
 		if (!std::getline (std::cin, family_name))
-			break;
+			return;
 	}
-	while (dark_secret.empty())
+	while (dark_secret.empty() || ::is_only_spacer(dark_secret) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Darkest secret : ";
 		if (!std::getline (std::cin, dark_secret))
-			break;
+			return;
 	}
-	while (phone_number.empty())
+	while (phone_number.empty() || ::is_only_spacer(phone_number) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Phone number : ";
 		if (!std::getline (std::cin, phone_number))
-			break;
+			return;
 	}
 	this->contact[this->count % 8].set(name, surname, family_name, dark_secret, phone_number);
 	this->count++;

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.hpp                                  :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:12:42 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/21 10:16:34 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:04:36 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
-# include <bits/stdc++.h>
-# include <string>
-#include <cstring>
-#include <string>
+
+# include <cstring>
+# include <iomanip>
+# include <iostream>
+# include <sstream>
+# include <cstdlib>
 
 class Contact {
 	private:
