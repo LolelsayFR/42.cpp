@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:16:58 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:25 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/05/14 12:15:50 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ int	main(void)
 		std::cout << PF_PHBO;
 		if (!std::getline (std::cin, handler))
 			break ;
-		if (handler == "EXIT" || handler == "exit" || handler == "Exit")
+		if (handler == "EXIT")
 			break ;
-		else if (handler == "ADD" || handler == "add" || handler == "Add")
+		else if (handler == "ADD")
 			book.add_loop();
-		else if (handler == "SEARCH" || handler == "search" || handler == "Search")
+		else if (handler == "SEARCH")
 			book.search_loop();
-		if (!std::getline (std::cin, handler))
-			break ;
 	}
 	std::cout << PF_EXIT << std::endl;
 }
