@@ -1,4 +1,4 @@
-NAME			=	horde
+NAME			=	brainz
 
 SRC				=	main.cpp\
 					zombieHorde.cpp\
