@@ -6,11 +6,12 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:04:03 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/16 10:34:47 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/05/16 12:32:41 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
 class Zombie
 {
 	private:

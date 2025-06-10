@@ -2,4 +2,7 @@
 */*.o
 */*/*.o
 */*/*/*.o
-
+.vscode
+*/*.vscode
+*/*/*.vscode
+*/*/*/*.vscode
