@@ -29,7 +29,7 @@ fclean: hello clean
 	$(RM) $(NAME)
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
-%.o: %.c
+%.o: %.cpp
 	g++ ${CFLAGS} -c $< -o $@
 
 re:	fclean all
