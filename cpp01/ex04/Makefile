@@ -1,9 +1,7 @@
-NAME			=	violence
+NAME			=	not_ced
 
 SRC				=	main.cpp\
-					Weapon.cpp\
-					HumanA.cpp\
-					HumanB.cpp
+
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 

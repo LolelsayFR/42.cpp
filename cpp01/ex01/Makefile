@@ -13,10 +13,6 @@ OBJ		= 	${SRC:.cpp=.o}
 hello:
 	@echo "\e[48;2;100;0;100;1m Welcome to "$(NAME)" Makefile !\e[0m\n"
 
-d_info: hello
-	@echo "\e[48;2;70;70;70;1m "$(NAME)" usage : \e[0m\n"
-	@echo "./d_philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> [number_of_times_each_philosopher_must_eat]\n"
-
 $(NAME): $(OBJ)
 	@echo "\e[48;2;0;155;0;1m Compile "$(NAME)" \e[0m\n"
 	g++ $(OBJ) ${CFLAGS} -o $(NAME)
