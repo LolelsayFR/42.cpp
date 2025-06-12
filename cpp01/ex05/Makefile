@@ -1,4 +1,4 @@
-NAME			=	Harl2.0
+NAME			=	harl
 
 SRC				=	main.cpp\
 					Harl.cpp\
