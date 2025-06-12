@@ -6,12 +6,11 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 02:18:25 by emaillet          #+#    #+#             */
-/*   Updated: 2025/06/12 05:16:06 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/06/12 05:22:46 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
 
 Harl::Harl()
 {
