@@ -80,10 +80,10 @@ void Phonebook::search_loop(void)
 		if (!std::getline (std::cin, str))
 			return;
 		i = std::atoi(str.c_str());
-		if (i % 8 > this->count || i > 8  || i == 0 || str.empty())
+		if (i % 9 > this->count || i > 9  || i == 0 || str.empty())
 			std::cout << PF_SEARCH << " Please enter a valid value." << std::endl;
 		else
-			this->contact[i % 8 - 1].print(str);
+			this->contact[i % 9 - 1].print(str);
 	}
 }
 
