@@ -15,7 +15,7 @@ hello:
 
 $(NAME): $(OBJ)
 	@echo "\e[48;2;0;155;0;1m Compile "$(NAME)" \e[0m\n"
-	g++ $(OBJ) ${CFLAGS} -o $(NAME)
+	c++ $(OBJ) ${CFLAGS} -o $(NAME)
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
 clean: hello
@@ -28,8 +28,8 @@ fclean: hello clean
 	$(RM) $(NAME)
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
-%.o: %.c
-	g++ ${CFLAGS} -c $< -o $@
+%.o: %.cpp
+	c++ ${CFLAGS} -c $< -o $@
 
 re:	fclean all
 
