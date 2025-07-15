@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:15:49 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/15 10:21:21 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:52:45 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static std::string SpacersTrim(std::string str)
 		start++;
 	while (isspace(str[end]))
 		end--;
-	return (str.substr(start, end + 1));
+	return (str.substr(start, end + 1 - start));
 }
 
 void Contact::SetData(std::string Name, std::string NickName, std::string LastName,
