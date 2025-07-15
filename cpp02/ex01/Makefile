@@ -1,9 +1,7 @@
-NAME			=	brainz
+NAME			=	Fixed
 
 SRC				=	main.cpp\
-					newZombie.cpp\
-					randomChump.cpp\
-					Zombie.cpp
+					Fixed.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 

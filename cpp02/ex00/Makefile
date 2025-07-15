@@ -1,4 +1,4 @@
-NAME			=	brainz
+NAME			=	Fixed
 
 SRC				=	main.cpp\
 					Fixed.cpp\

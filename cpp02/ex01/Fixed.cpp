@@ -6,23 +6,11 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:10:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/06/17 03:10:41 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/06/17 02:24:59 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-Fixed::Fixed()
-{
-    this->_number = 0;
-    std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::Fixed()
-{
-    this->_number = 0;
-    std::cout << "Default constructor called" << std::endl;
-}
 
 Fixed::Fixed()
 {
