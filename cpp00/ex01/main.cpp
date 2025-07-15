@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:16:58 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/14 12:15:50 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:15:54 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,18 @@ int	main(void)
 		if (handler == "EXIT")
 			break ;
 		else if (handler == "ADD")
-			book.add_loop();
+			book.AddLoop();
 		else if (handler == "SEARCH")
-			book.search_loop();
+			book.SearchLoop();
 	}
 	std::cout << PF_EXIT << std::endl;
 }
 
-bool	is_only_spacer(std::string str)
+bool	IsOnlySpacer(std::string str)
 {
-    const char	*c_str = str.c_str();
-
-    for (int i = 0; c_str[i] != '\0'; i++)
+    for (int i = 0; str[i] != '\0'; i++)
     {
-        if (c_str[i] != ' ' && c_str[i] != '\t' && c_str[i] != '\n'
-        && c_str[i] != '\v' && c_str[i] != '\f' && c_str[i] != '\r')
+        if (!isspace(str[i]))
             return (false);
     }
     return (true);

@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:15:49 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/14 12:33:39 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:21:21 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,26 @@ Contact::Contact(void)
 	return ;
 }
 
-void Contact::set(std::string name, std::string nickname, std::string family_name,
-				 std::string dark_secret, std::string phone_number)
+static std::string SpacersTrim(std::string str)
 {
-	this->name = name;
-	this->family_name = family_name;
-	this->nickname = nickname;
-	this->phone_number = phone_number;
-	this->dark_secret = dark_secret;
+	int start = 0;
+	int end = str.length() - 1;
+
+	while (isspace(str[start]))
+		start++;
+	while (isspace(str[end]))
+		end--;
+	return (str.substr(start, end + 1));
+}
+
+void Contact::SetData(std::string Name, std::string NickName, std::string LastName,
+				 std::string DarkestSecret, std::string PhoneNumber)
+{
+	this->Name = SpacersTrim(Name);
+	this->LastName = SpacersTrim(LastName);
+	this->NickName = SpacersTrim(NickName);
+	this->PhoneNumber = SpacersTrim(PhoneNumber);
+	this->DarkestSecret = SpacersTrim(DarkestSecret);
 	return ;
 }
 
@@ -37,30 +49,28 @@ void Contact::print(std::string i)
 {
 	std::cout
 		<< "\e[48;2;0;0;70;1m[" << i << "]\e[0m"
-		<< " Firstname : " << this->name << std::endl
+		<< " Firstname : " << this->Name << std::endl
 		<< "\e[48;2;0;0;70;1m[" << i << "]\e[0m"
-		<< " Lastname : " << this->family_name << std::endl
+		<< " Lastname : " << this->LastName << std::endl
 		<< "\e[48;2;0;0;70;1m[" << i << "]\e[0m"
-		<< " Nickname : " << this->nickname << std::endl
+		<< " NickName : " << this->NickName << std::endl
 		<< "\e[48;2;0;0;70;1m[" << i << "]\e[0m"
-		<< " Phone number : " << this->phone_number << std::endl
+		<< " Phone number : " << this->PhoneNumber << std::endl
 		<< "\e[48;2;0;0;70;1m[" << i << "]\e[0m"
-		<< " Darkest secret : " << this->dark_secret << std::endl;
+		<< " Darkest secret : " << this->DarkestSecret << std::endl;
 }
 
-std::string Contact::data_ten_limit(void)
+std::string Contact::PrintData(int arg)
 {
-	static int	arg = 0;
 	int			i;
 	std::string	str;
 
-	if (arg % 3 == 0)
-		str = this->name;
-	else if (arg % 3 == 1)
-		str = this->family_name;
-	else if (arg % 3 == 2)
-		str = this->nickname;
-	arg++;
+	if (arg == 0)
+		str = this->Name;
+	else if (arg == 1)
+		str = this->LastName;
+	else if (arg == 2)
+		str = this->NickName;
 	i = strlen(str.c_str());
 	if (i < 10)
 		std::cout << std::setw(10) << str;

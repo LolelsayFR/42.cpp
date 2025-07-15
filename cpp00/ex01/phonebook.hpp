@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 06:01:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/25 17:55:26 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:54:07 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define P "\e[48;2;70;0;70;1m"
 # define R "\e[0m"
 
-bool	is_only_spacer(std::string);
+bool	IsOnlySpacer(std::string);
 
 class Phonebook {
 	private:
@@ -31,9 +31,9 @@ class Phonebook {
 		bool	isrunning;
 		Phonebook(void);
 		~Phonebook(void);
-		void print(void);
-		void add_loop(void);
-		void search_loop(void);
+		void Print(void);
+		void AddLoop(void);
+		void SearchLoop(void);
 };
 
 # endif

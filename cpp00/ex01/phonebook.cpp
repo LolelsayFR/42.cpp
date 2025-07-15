@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:05:45 by emaillet          #+#    #+#             */
-/*   Updated: 2025/03/25 18:24:41 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:08:06 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,58 +24,58 @@ Phonebook::~Phonebook(void)
 	return ;
 }
 
-void Phonebook::add_loop(void)
+void Phonebook::AddLoop(void)
 {
-	std::string	name = "";
+	std::string	Name = "";
 	std::string	surname = "";
-	std::string	family_name = "";
-	std::string	dark_secret = "";
-	std::string	phone_number = "";
+	std::string	LastName = "";
+	std::string	DarkestSecret = "";
+	std::string	PhoneNumber = "";
 
-	while (name.empty() || ::is_only_spacer(name) == true)
+	while (Name.empty() || ::IsOnlySpacer(Name) == true)
 	{
 		std::cout << PF_ADD << " [" << this->count % 8 + 1 << "] Firstname : ";
-		if (!std::getline (std::cin, name))
+		if (!std::getline (std::cin, Name))
 			return;
 	}
-	while (surname.empty() || ::is_only_spacer(surname) == true)
+	while (surname.empty() || ::IsOnlySpacer(surname) == true)
 	{
-		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Nickname : ";
+		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] NickName : ";
 		if (!std::getline (std::cin, surname))
 			return;
 	}
-	while (family_name.empty() || ::is_only_spacer(family_name) == true)
+	while (LastName.empty() || ::IsOnlySpacer(LastName) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Lastname : ";
-		if (!std::getline (std::cin, family_name))
+		if (!std::getline (std::cin, LastName))
 			return;
 	}
-	while (dark_secret.empty() || ::is_only_spacer(dark_secret) == true)
+	while (DarkestSecret.empty() || ::IsOnlySpacer(DarkestSecret) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Darkest secret : ";
-		if (!std::getline (std::cin, dark_secret))
+		if (!std::getline (std::cin, DarkestSecret))
 			return;
 	}
-	while (phone_number.empty() || ::is_only_spacer(phone_number) == true)
+	while (PhoneNumber.empty() || ::IsOnlySpacer(PhoneNumber) == true)
 	{
 		std::cout << PF_ADD  << " [" << this->count % 8 + 1 << "] Phone number : ";
-		if (!std::getline (std::cin, phone_number))
+		if (!std::getline (std::cin, PhoneNumber))
 			return;
 	}
-	this->contact[this->count % 8].set(name, surname, family_name, dark_secret, phone_number);
+	this->contact[this->count % 8].SetData(Name, surname, LastName, DarkestSecret, PhoneNumber);
 	this->count++;
 }
 
-void Phonebook::search_loop(void)
+void Phonebook::SearchLoop(void)
 {
 	std::string	str;
 	int			i;
 
 	if (this->count < 1)
-			std::cout << P " No index registered ! Use Add tu create one. " R << std::endl;
+			std::cout << P " No index registered ! Use Add to create one. " R << std::endl;
 	else
 	{
-		this->print();
+		this->Print();
 		std::cout << PF_SEARCH << " by index : ";
 		if (!std::getline (std::cin, str))
 			return;
@@ -87,20 +87,20 @@ void Phonebook::search_loop(void)
 	}
 }
 
-void Phonebook::print(void)
+void Phonebook::Print(void)
 {
 	std::cout
 		<< P "███████████████████████████████████████████████" R << std::endl
-		<< P "█| Index    | Name     | Lastname | Nickname |█" R << std::endl
+		<< P "█| Index    | Name     | Lastname | NickName |█" R << std::endl
 		<< P "███████████████████████████████████████████████" R << std::endl
 		<< P "█╋━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━╋█" R << std::endl;
 	for(int i = 0; i < 8 && i < this->count; i++)
 	{
 		std::cout
 		<< P "█|" << std::setw(10) << i + 1
-		<<   "|" << this->contact[i].data_ten_limit()
-		<<   "|" << this->contact[i].data_ten_limit()
-		<<   "|" << this->contact[i].data_ten_limit()
+		<<   "|" << this->contact[i].PrintData(0)
+		<<   "|" << this->contact[i].PrintData(1)
+		<<   "|" << this->contact[i].PrintData(2)
 		<<   "|█" << R << std::endl
 		<< P "█╋━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━╋━━━━━━━━━━╋█" R << std::endl;
 	}

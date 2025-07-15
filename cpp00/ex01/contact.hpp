@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 03:12:42 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/14 12:30:11 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:00:56 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 
 class Contact {
 	private:
-		std::string	name;
-		std::string	nickname;
-		std::string	family_name;
-		std::string	dark_secret;
-		std::string	phone_number;
+		std::string	Name;
+		std::string	NickName;
+		std::string	LastName;
+		std::string	DarkestSecret;
+		std::string	PhoneNumber;
 	public:
 		Contact(void);
 		~Contact(void);
-		std::string data_ten_limit(void);
+		std::string PrintData(int arg);
 		void print(std::string i);
-		void set(std::string name, std::string nickname, std::string family_name,
-				 std::string dark_secret, std::string phone_number);
+		void SetData(std::string Name, std::string NickName, std::string LastName,
+				 std::string DarkestSecret, std::string PhoneNumber);
 };
 
 # endif
