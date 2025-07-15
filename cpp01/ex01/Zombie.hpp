@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:04:03 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/16 12:32:37 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:45:18 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 class Zombie
 {
 	private:
-		std::string name;
+		std::string Name;
 	public:
 		Zombie();
 		~Zombie();
 		void	announce(void);
-		void	setName(std::string name);
+		void	setName(std::string Name);
 };
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie* zombieHorde( int N, std::string Name );

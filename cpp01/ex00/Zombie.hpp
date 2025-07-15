@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:04:03 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/16 12:32:41 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:45:18 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 class Zombie
 {
 	private:
-		std::string name;
+		std::string Name;
 	public:
 		Zombie();
 		~Zombie();
 		void	announce(void);
-		void	setName(std::string name);
+		void	setName(std::string Name);
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+Zombie* newZombie( std::string Name );
+void randomChump( std::string Name );
