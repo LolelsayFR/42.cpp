@@ -3,7 +3,7 @@ NAME			=	GlobalBanksters
 SRC				=	tests.cpp\
 					Account.cpp\
 
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98 
+CFLAGS			=	-Wall -Werror -Wextra -g -std=c++98 
 
 all:	hello $(NAME)
 

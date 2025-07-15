@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:44:58 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/14 20:46:11 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:19:39 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	Account::_displayTimestamp( void )
 
 Account::Account(int initial_deposit)
 {
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	this->_amount = initial_deposit;
 	_totalAmount += initial_deposit;
 	this->_accountIndex = _nbAccounts;
