@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:02:03 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/15 09:45:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:38:50 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 Zombie* zombieHorde( int N, std::string Name )
 {
-	Zombie 	*newOne;
+	Zombie 	*NewOne;
 
-	newOne = new Zombie[N];
+	NewOne = new Zombie[N];
 	for (int i = 0; i < N; i++)
-		newOne[i].setName(Name);
-	return (newOne);
+		NewOne[i].setName(Name);
+	return (NewOne);
 }
