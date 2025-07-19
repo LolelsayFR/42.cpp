@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:44:58 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/15 11:19:39 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:53:25 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	Account::makeDeposit( int deposit )
 				<< "p_amount:" << this->_amount << ";"
 				<< "deposit:" << deposit << ";"
 				<< "amount:" << this->_amount + deposit << ";"
-				<< "nb_deposits:" << this->_nbDeposits << ";"
+				<< "nb_deposits:" << this->_nbDeposits
 				<< std::endl;
 	this->_amount += deposit;
 	_totalAmount += deposit;
@@ -73,6 +73,15 @@ void	Account::makeDeposit( int deposit )
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
+	if (withdrawal > this->_amount)
+	{
+		_displayTimestamp();
+		std::cout 	<< "index:" << this->_accountIndex << ";" 
+					<< "p_amount:" << this->_amount << ";"
+					<< "withdrawal:refused"
+					<< std::endl;
+		return (false);
+	}
 	this->_nbWithdrawals++;
 	_totalNbWithdrawals++;
 	_displayTimestamp();
@@ -80,7 +89,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 				<< "p_amount:" << this->_amount << ";"
 				<< "withdrawal:" << withdrawal << ";"
 				<< "amount:" << this->_amount - withdrawal << ";"
-				<< "nb_withdrawals:" << this->_nbDeposits << ";"
+				<< "nb_withdrawals:" << this->_nbDeposits
 				<< std::endl;
 	this->_amount -= withdrawal;
 	_totalAmount -= withdrawal;
@@ -93,7 +102,7 @@ void	Account::displayAccountsInfos( void )
 	std::cout 	<< "accounts:" << _nbAccounts << ";"
 				<< "total:" << _totalAmount << ";" 
 				<< "deposits:" << _totalNbDeposits << ";"
-				<< "withdrawal:" << _totalNbWithdrawals << ";"
+				<< "withdrawals:" << _totalNbWithdrawals
 				<< std::endl;
 }
 
@@ -103,7 +112,7 @@ void	Account::displayStatus( void ) const
 	std::cout 	<< "index:" << this->_accountIndex << ";" 
 				<< "amount:" << this->_amount << ";"
 				<< "deposits:" << this->_nbDeposits << ";"
-				<< "withdrawals:" << this->_nbWithdrawals << ";"
+				<< "withdrawals:" << this->_nbWithdrawals
 				<< std::endl;
 }
 
