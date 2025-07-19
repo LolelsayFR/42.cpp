@@ -6,14 +6,17 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:23:45 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/19 15:24:21 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 15:53:17 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-int main(int argc, char const *argv[])
+int	main(void)
 {
-    
-    return 0;
+	ClapTrap	a("Arnaud");
+	ClapTrap	b("Bernard");
+
+	b.attack("Arnaud");
+	return (0);
 }
