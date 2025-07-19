@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 02:18:25 by emaillet          #+#    #+#             */
-/*   Updated: 2025/06/12 05:22:46 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 17:36:58 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void Harl::complain( std::string level )
 	i = 0;
 	while (i < 4 && level.compare(levelsStr[i]))
 		i++;
+	if (i == 4)
+		return ;
 	(this->*func[i])();
 }
 
