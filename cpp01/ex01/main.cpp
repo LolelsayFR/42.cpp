@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:01:55 by emaillet          #+#    #+#             */
-/*   Updated: 2025/05/16 12:09:03 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:39:48 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main(void)
 {
-	Zombie	*joe;
+	Zombie	*Joe;
 	int		N;
 
 	N = 10;
-	joe = zombieHorde(N, "Joe la fripouille");
+	Joe = zombieHorde(N, "Joe la fripouille");
 	for (int i = 0; i < N; i++)
-		joe[i].announce();
-	delete[] joe;
+		Joe[i].announce();
+	delete[] Joe;
 }
