@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:01:41 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/15 09:45:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:36:09 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Zombie::~Zombie()
 
 void    Zombie::announce(void)
 {
-    std::cout << this->Name << " : BraiiiiiiinnnzzzZ.." << std::endl;
+    std::cout << this->Name << ": BraiiiiiiinnnzzzZ.." << std::endl;
 }
 
 void    Zombie::setName(std::string Name)

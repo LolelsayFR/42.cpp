@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 22:02:03 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/15 09:45:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:36:53 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Zombie* newZombie( std::string Name )
 {
-	Zombie 	*newOne;
+	Zombie 	*NewOne;
 
-	newOne = new Zombie;
-	newOne->setName(Name);
-	return (newOne);
+	NewOne = new Zombie;
+	NewOne->setName(Name);
+	return (NewOne);
 }
