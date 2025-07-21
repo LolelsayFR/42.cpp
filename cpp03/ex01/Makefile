@@ -6,16 +6,16 @@ SRC				=	main.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
-all:	hello $(NAME)
+OBJ				= 	${SRC:.cpp=.o}
 
-OBJ		= 	${SRC:.cpp=.o}
+all:	hello $(NAME)
 
 hello:
 	@echo "\e[48;2;100;0;100;1m Welcome to "$(NAME)" Makefile !\e[0m\n"
 
 $(NAME): $(OBJ)
 	@echo "\e[48;2;0;155;0;1m Compile "$(NAME)" \e[0m\n"
-	c++ $(OBJ) ${CFLAGS} -o $(NAME)
+	${CXX} $(OBJ) ${CFLAGS} -o $(NAME)
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
 clean: hello
@@ -29,7 +29,7 @@ fclean: hello clean
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
 %.o: %.cpp
-	c++ ${CFLAGS} -c $< -o $@
+	${CXX} ${CFLAGS} -c $< -o $@
 
 re:	fclean all
 

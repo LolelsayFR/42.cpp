@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:07:34 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/19 15:05:32 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:31:27 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ public:
 	Fixed(float const f);
 	Fixed(const Fixed& other);
 	Fixed& operator=(const Fixed& other);
-	friend std::ostream& operator<<(std::ostream& out, const Fixed& Fixed);
 	~Fixed();
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& Fixed);
 
 #endif // FIXED_HPP
