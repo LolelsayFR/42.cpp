@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:07:34 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/21 11:31:27 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:37:57 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed
 {
 private:
-	int                 _number;
+	int                 _rawBits;
 	static const int    _nBits = 8;
 public:
 	Fixed();
