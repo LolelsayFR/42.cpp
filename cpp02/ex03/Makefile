@@ -1,12 +1,14 @@
-NAME			=	Fixed
+NAME			=	BSP
 
 SRC				=	main.cpp\
+					Point.cpp\
 					Fixed.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
 OBJ				= 	${SRC:.cpp=.o}
 
+CXX				=	c++
 all:	hello $(NAME)
 
 hello:
