@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:10:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/21 11:23:41 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 05:02:29 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 /* ************************************************************************** */
 
 // Default constructor
-Fixed::Fixed() : _number(0) {
+Fixed::Fixed() : _rawBits(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
 //Copy constructor
 Fixed::Fixed(const Fixed& other) {
     std::cout << "Copy constructor called" << std::endl;
-    this->_number = other.getRawBits();
+	this->operator=(other);
 }
 
 //Destructor
@@ -40,8 +40,8 @@ Fixed::~Fixed() {
 
 // Copy operator
 Fixed& Fixed::operator=(const Fixed& other) {
-    std::cout << "Copy assignement constructor called" << std::endl;
-    this->_number = other.getRawBits();
+    std::cout << "Copy assignement operator called" << std::endl;
+    this->_rawBits = other.getRawBits();
     return (*this);
 }
 
@@ -50,15 +50,15 @@ Fixed& Fixed::operator=(const Fixed& other) {
 /* Getter and Setter */
 /* ************************************************************************** */
 
-//Getter for _number
+//Getter for _rawBits
 int Fixed::getRawBits( void ) const {
-    int const value = this->_number;
-	std::cout << "getRawBits function called\n";
+    int const value = this->_rawBits;
+	std::cout << "getRawBits member function called\n";
 	return (value);
 }
 
-//Setter for _number
+//Setter for _rawBits
 void Fixed::setRawBits( int const raw ) {
-    std::cout << "setRawBits function called\n";
-    this->_number = raw;
+    std::cout << "setRawBits member function called\n";
+    this->_rawBits = raw;
 }

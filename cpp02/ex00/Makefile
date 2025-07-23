@@ -4,6 +4,7 @@ SRC				=	main.cpp\
 					Fixed.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+
 CXX				=	c++
 
 OBJ				= 	${SRC:.cpp=.o}
