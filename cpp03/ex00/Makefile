@@ -7,6 +7,8 @@ CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
 OBJ				= 	${SRC:.cpp=.o}
 
+CXX				=	c++
+
 all:	hello $(NAME)
 
 hello:
