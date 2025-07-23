@@ -6,8 +6,23 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:26:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/23 07:30:03 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 08:42:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+bool bsp( Point const a, Point const b, Point const c, Point const point)
+{
+
+}
+
+/* ************************************************************************** */
+/* NOTE : 
+/*	Algo de verification si dans un triangle en 3 points
+/*	OK si point est entre a et b, et que le point est entre a et c, same pour b et c 
+/*	Atention les points ne sont pas forcement alligner
+/*	Lien utile :
+/*		https://www.youtube.com/watch?v=kkucCUlyIUE&themeRefresh=1
+/*		https://algo.developpez.com/actu/133518/Determiner-si-un-point-est-dans-un-triangle-un-billet-de-blog-de-wiwaxia/
+/* ************************************************************************** */
