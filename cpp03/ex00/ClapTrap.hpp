@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:22:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/19 15:45:23 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:53:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ class ClapTrap
 private:
 	std::string	_Name;
 	int			_HitPoints;
+	int  		_DefaultHitPoint;
 	int			_EnergyPoints;
 	int			_AttackDamage;
 public:
-	ClapTrap(/* args */);
+	ClapTrap();
 	ClapTrap(std::string Name);
 	ClapTrap(const ClapTrap& other);
 	ClapTrap& operator=(const ClapTrap& other);

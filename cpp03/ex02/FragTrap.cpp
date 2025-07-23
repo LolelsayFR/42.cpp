@@ -6,24 +6,33 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:26:32 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/19 15:27:38 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:31:02 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(/* args */)
-{
+/* ************************************************************************** */
+/* All constructors and the destructor */
+/* ************************************************************************** */
+
+// Default constructor
+FragTrap::FragTrap() {
 }
 
-FragTrap::FragTrap(const FragTrap& other)
-{
+// Copy constructor
+FragTrap::FragTrap(const FragTrap& other) {
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& other)
-{
+// Default destructor
+FragTrap::~FragTrap() {
 }
 
-FragTrap::~FragTrap()
-{
+
+/* ************************************************************************** */
+/* All operator overload */
+/* ************************************************************************** */
+
+// Copy Operator
+FragTrap& FragTrap::operator=(const FragTrap& other) {
 }

@@ -6,24 +6,33 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:28:26 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/19 15:28:34 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:30:59 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(/* args */)
-{
+/* ************************************************************************** */
+/* All constructors and the destructor */
+/* ************************************************************************** */
+
+// Default constructor
+DiamondTrap::DiamondTrap() {
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other)
-{
+// Copy constructor
+DiamondTrap::DiamondTrap(const DiamondTrap& other) {
 }
 
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
-{
+// Default destructor
+DiamondTrap::~DiamondTrap() {
 }
 
-DiamondTrap::~DiamondTrap()
-{
+
+/* ************************************************************************** */
+/* All operator overload */
+/* ************************************************************************** */
+
+// Copy Operator
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
 }
