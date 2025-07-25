@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:27:12 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:53:15 by emaillet         ###   ########.fr       */
+/*   Created: 2025/07/19 15:23:45 by emaillet          #+#    #+#             */
+/*   Updated: 2025/07/25 10:52:06 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#include "FragTrap.hpp"
 
-# include  "ScavTrap.hpp"
-
-class FragTrap : virtual public ClapTrap
+int	main(void)
 {
-public:
-	FragTrap();
-	FragTrap(std::string Name);
-	FragTrap(const FragTrap& other);
-	FragTrap& operator=(const FragTrap& other);
-	~FragTrap();
-	void	attack(const std::string& target);
-	void    highFivesGuys(void);
-};
-#endif // FRAGTRAP_HPP
+	FragTrap	a("Bernard");
+
+	a.printInfo();
+	a.attack("Serena");
+	a.printInfo();
+	a.highFivesGuys();
+	return (0);
+}
