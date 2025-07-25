@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:21:51 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 11:17:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/25 11:22:20 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ClapTrap::attack(const std::string& target) {
 	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
 		return ;
 	this->_EnergyPoints--;
-	std::cout	<< "Claptrap" << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
+	std::cout	<< "Claptrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
 }
 
 // Take damage member function
