@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:25:09 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:52:56 by emaillet         ###   ########.fr       */
+/*   Created: 2025/07/19 15:23:45 by emaillet          #+#    #+#             */
+/*   Updated: 2025/07/25 11:14:22 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "ScavTrap.hpp"
 
-# include  "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int	main(void)
 {
-public:
-    ScavTrap();
-    ScavTrap(std::string Name);
-    ScavTrap(const ScavTrap& other);
-    ScavTrap& operator=(const ScavTrap& other);
-    ~ScavTrap();
-	void	attack(const std::string& target);
-    void    guardGate();
-};
+	ScavTrap	a("Serena");
 
-#endif // SCAVTRAP_HPP
+	a.printInfo();
+	a.attack("Jostophe");
+	a.printInfo();
+	a.guardGate();
+	return (0);
+}

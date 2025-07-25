@@ -1,11 +1,11 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:25:28 by emaillet          #+#    #+#             */
+/*   Created: 2025/07/19 15:21:51 by emaillet          #+#    #+#             */
 /*   Updated: 2025/07/25 11:22:20 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,55 +13,54 @@
 #include "ScavTrap.hpp"
 
 /* ************************************************************************** */
-/* All constructors and the destructor */
+/* All constructors and destructors */
 /* ************************************************************************** */
 
 // Default constructor
-ScavTrap::ScavTrap() {
-	this->_HitPoints = 100;
-	this->_EnergyPoints = 50;
-	this->_AttackDamage = 20;
+ClapTrap::ClapTrap() {
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
 	this->_DefaultHitPoint = this->_HitPoints;
 	this->_Name = "";
-	std::cout << GRN"ScavTrap" << RES << " default constructor"  << std::endl;
+	std::cout << GRN"Claptrap" << RES << " default constructor"  << std::endl;
 }
 
 // Name constructor
-ScavTrap::ScavTrap(std::string Name) {
-	this->_HitPoints = 100;
-	this->_EnergyPoints = 50;
-	this->_AttackDamage = 20;
+ClapTrap::ClapTrap(std::string Name) {
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
 	this->_DefaultHitPoint = this->_HitPoints;
 	this->_Name = Name;
-	std::cout << GRN"ScavTrap" << RES << " constructor : " << this->_Name  << std::endl;
+	std::cout << GRN"Claptrap" << RES << " constructor : " << this->_Name  << std::endl;
 }
 
 // Copy constructor
-ScavTrap::ScavTrap(const ScavTrap& other) {
+ClapTrap::ClapTrap(const ClapTrap& other) {
 	this->_HitPoints = other._HitPoints;
 	this->_EnergyPoints = other._EnergyPoints;
 	this->_AttackDamage = other._AttackDamage;
 	this->_DefaultHitPoint = other._HitPoints;
 	this->_Name = other._Name;
-    std::cout << GRN"ScavTrap" << RES << " copy constructor called : " << this->_Name  << std::endl;
+    std::cout << GRN"Claptrap" << RES << " copy constructor called : " << this->_Name  << std::endl;
 }
 
-// Default destructor
-ScavTrap::~ScavTrap() {
-    std::cout << RED"ScavTrap" << RES << " destructor called : " << this->_Name  << std::endl;
+// Destructor
+ClapTrap::~ClapTrap() {
+    std::cout << RED"Claptrap" << RES << " destructor called : " << this->_Name  << std::endl;
 }
 
 
 /* ************************************************************************** */
-/* All operator overload */
+/* All operators overload */
 /* ************************************************************************** */
 
-// Copy Operator
-ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+// Copy operator
+ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 	this->_HitPoints = other._HitPoints;
 	this->_EnergyPoints = other._EnergyPoints;
 	this->_AttackDamage = other._AttackDamage;
-	this->_DefaultHitPoint = other._HitPoints;
 	this->_Name = other._Name;
     std::cout << "Claptrap" << RES << " copy assignement operator called : " << this->_Name<< std::endl;
 	return (*this);
@@ -73,14 +72,34 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 /* ************************************************************************** */
 
 // Attack member function
-void	ScavTrap::attack(const std::string& target) {
+void	ClapTrap::attack(const std::string& target) {
 	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
 		return ;
 	this->_EnergyPoints--;
 	std::cout	<< "Claptrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
 }
 
-// Guard gate for Scavtrap
-void ScavTrap::guardGate(void) {
-	std::cout << "ScavTrap " << this->_Name << " is now in GateKeeper mode" << std::endl;
+// Take damage member function
+void	ClapTrap::takeDamage(unsigned int amount) {
+	this->_HitPoints -= amount;
+}
+
+// beRepaired member function
+void	ClapTrap::beRepaired(unsigned int amount) {
+	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
+		return ;
+	this->_EnergyPoints--;
+	this->_HitPoints += amount;
+	if (this->_HitPoints > this->_DefaultHitPoint)
+		this->_HitPoints = this->_DefaultHitPoint;
+}
+
+// PrintInfo (Utils for test)
+void	ClapTrap::printInfo(void) {
+	std::cout	<< "\n\e[48;2;0;0;155;1m Info \e[0m" << std::endl
+				<< "Name : " << this->_Name << std::endl
+				<< "Hit Point : " << this->_HitPoints << std::endl
+				<< "Energy point : " << this->_EnergyPoints << std::endl
+				<< "Attack Damage : " << this->_AttackDamage << std::endl
+				<< "\e[48;2;0;0;155;1m End of Info \e[0m\n" << std::endl;
 }
