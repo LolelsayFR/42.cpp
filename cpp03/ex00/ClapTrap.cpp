@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:21:51 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/23 09:55:07 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/25 05:16:29 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,14 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	this->_HitPoints += amount;
 	if (this->_HitPoints > this->_DefaultHitPoint)
 		this->_HitPoints = this->_DefaultHitPoint;
+}
+
+void	ClapTrap::printInfo(void) {
+	std::cout	<< "\n\e[48;2;0;0;155;1m ClapTrap Info \e[0m" << std::endl
+				<< "Name : " << this->_Name << std::endl
+				<< "Actual Hit Point : " << this->_HitPoints << std::endl
+				<< "Default Hit point : " << this->_DefaultHitPoint << std::endl
+				<< "Energy point : " << this->_EnergyPoints << std::endl
+				<< "Attack Damage : " << this->_AttackDamage << std::endl
+				<< "\e[48;2;0;0;155;1m End of Info \e[0m\n" << std::endl;
 }
