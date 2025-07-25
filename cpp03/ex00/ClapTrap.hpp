@@ -6,18 +6,22 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:22:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 05:09:02 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/25 11:15:12 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
+# include <iostream>
+
+# define RED	"\e[48;2;75;0;0;1m "
+# define GRN	"\e[48;2;0;75;0;1m "
+# define RES	" \e[0m"
 
 class ClapTrap
 {
-private:
+protected:
 	std::string	_Name;
 	int			_HitPoints;
 	int			_EnergyPoints;
