@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:28:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:41:17 by emaillet         ###   ########.fr       */
+/*   Created: 2025/07/19 15:25:09 by emaillet          #+#    #+#             */
+/*   Updated: 2025/07/25 10:41:32 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include "FragTrap.hpp"
-class DiamondTrap : public ScavTrap, public FragTrap
+# include  "ClapTrap.hpp"
+
+class ScavTrap : virtual public ClapTrap
 {
-private:
-    std::string	_Name;
 public:
-    DiamondTrap();
-	DiamondTrap(std::string Name);
-    DiamondTrap(const DiamondTrap& other);
-    DiamondTrap& operator=(const DiamondTrap& other);
-    ~DiamondTrap();
-	using ScavTrap::attack;
-    void    whoAmI();
+    ScavTrap();
+    ScavTrap(std::string Name);
+    ScavTrap(const ScavTrap& other);
+    ScavTrap& operator=(const ScavTrap& other);
+    ~ScavTrap();
+	void	attack(const std::string& target);
+    void    guardGate();
+    int     getEnergyPoint(void);
 };
 
-#endif // DIAMONDTRAP_HPP
+#endif // SCAVTRAP_HPP

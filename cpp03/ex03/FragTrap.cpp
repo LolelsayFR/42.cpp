@@ -1,65 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:21:51 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 06:35:45 by emaillet         ###   ########.fr       */
+/*   Created: 2025/07/19 15:25:28 by emaillet          #+#    #+#             */
+/*   Updated: 2025/07/25 11:19:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+# include "FragTrap.hpp"
 
 /* ************************************************************************** */
-/* All constructors and destructors */
+/* All constructors and the destructor */
 /* ************************************************************************** */
 
 // Default constructor
-DiamondTrap::DiamondTrap() {
+FragTrap::FragTrap() {
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 100;
+	this->_AttackDamage = 30;
+	this->_DefaultHitPoint = this->_HitPoints;
 	this->_Name = "";
-	this->_EnergyPoints = ScavTrap("getEnergyPoint").getEnergyPoint();
-	std::cout << GRN"DiamondTrap" << RES << " default constructor" << std::endl;
+	std::cout << GRN"FragTrap" << RES << " default constructor"  << std::endl;
 }
 
 // Name constructor
-DiamondTrap::DiamondTrap(std::string Name) {
-	this->_Name = Name;
-	this->_EnergyPoints = ScavTrap("getEnergyPoint").getEnergyPoint();
-	ClapTrap::_Name = Name + "_clap_name";
+FragTrap::FragTrap(std::string Name) {
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 100;
+	this->_AttackDamage = 30;
 	this->_DefaultHitPoint = this->_HitPoints;
-	std::cout << GRN"DiamondTrap" << RES << " constructor : " << this->_Name << std::endl;
+	this->_Name = Name;
+	std::cout << GRN"FragTrap" << RES << " constructor : " << this->_Name  << std::endl;
 }
 
 // Copy constructor
-DiamondTrap::DiamondTrap(const DiamondTrap& other) {
+FragTrap::FragTrap(const FragTrap& other) {
 	this->_HitPoints = other._HitPoints;
 	this->_EnergyPoints = other._EnergyPoints;
 	this->_AttackDamage = other._AttackDamage;
 	this->_DefaultHitPoint = other._HitPoints;
 	this->_Name = other._Name;
-    std::cout << GRN"DiamondTrap" << RES << " copy constructor called : " << this->_Name<< std::endl;
+    std::cout << GRN"FragTrap" << RES << " copy constructor called : " << this->_Name  <<std::endl;
 }
 
-// Destructor
-DiamondTrap::~DiamondTrap() {
-    std::cout << RED"DiamondTrap" << RES << " destructor called : " << this->_Name << std::endl;
+// Default destructor
+FragTrap::~FragTrap() {
+    std::cout << RED"FragTrap" << RES << " destructor called : " << this->_Name  << std::endl;
 }
 
 
 /* ************************************************************************** */
-/* All operators overload */
+/* All operator overload */
 /* ************************************************************************** */
 
-// Copy operator
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
+// Copy Operator
+FragTrap& FragTrap::operator=(const FragTrap& other) {
 	this->_HitPoints = other._HitPoints;
 	this->_EnergyPoints = other._EnergyPoints;
 	this->_AttackDamage = other._AttackDamage;
 	this->_DefaultHitPoint = other._HitPoints;
 	this->_Name = other._Name;
-    std::cout << "DiamondTrap copy assignement operator called : " << this->_Name<< std::endl;
+    std::cout << "FragTrap" << RES << " copy assignement operator called : " << this->_Name<< std::endl;
 	return (*this);
 }
 
@@ -68,7 +72,15 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
 /* All other member functions */
 /* ************************************************************************** */
 
-// Who am i
-void DiamondTrap::whoAmI(void) {
-	std::cout << "DiamondTrap name is " << this->_Name << " and ClapTrap name is " << ClapTrap::_Name << std::endl;
+// Attack member function
+void	FragTrap::attack(const std::string& target) {
+	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
+		return ;
+	this->_EnergyPoints--;
+	std::cout	<< "FragTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
+}
+
+// Guard gate for FragTrap
+void FragTrap::highFivesGuys(void) {
+	std::cout << "FragTrap " << this->_Name << " need a mate to make a Hight five !" << std::endl;
 }

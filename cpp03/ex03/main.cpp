@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:28:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:41:17 by emaillet         ###   ########.fr       */
+/*   Created: 2025/07/19 15:23:45 by emaillet          #+#    #+#             */
+/*   Updated: 2025/07/25 10:46:19 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#include "DiamondTrap.hpp"
 
-# include "FragTrap.hpp"
-class DiamondTrap : public ScavTrap, public FragTrap
+int	main(void)
 {
-private:
-    std::string	_Name;
-public:
-    DiamondTrap();
-	DiamondTrap(std::string Name);
-    DiamondTrap(const DiamondTrap& other);
-    DiamondTrap& operator=(const DiamondTrap& other);
-    ~DiamondTrap();
-	using ScavTrap::attack;
-    void    whoAmI();
-};
+	DiamondTrap	a("Jostophe");
 
-#endif // DIAMONDTRAP_HPP
+	a.whoAmI();
+	a.highFivesGuys();
+	a.guardGate();
+	a.printInfo();
+	a.attack("Joel and Christophe");
+	a.printInfo();
+	return (0);
+}
