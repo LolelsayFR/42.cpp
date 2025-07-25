@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:10:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/23 08:15:33 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:50:19 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ Fixed Fixed::operator/(const Fixed& other) {
 	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
-// Compare operator
+// Comparaison operator
 bool	Fixed::operator==(const Fixed& other) {
 	// std::cout << "== operator called" << std::endl;
 	if (this->toFloat() == other.toFloat())
