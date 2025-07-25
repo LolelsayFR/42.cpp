@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:13:40 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/21 11:23:58 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/25 03:45:06 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int main( void ) {
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;
+    a.setRawBits(0);
     return (0);
 }
