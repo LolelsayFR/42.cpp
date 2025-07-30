@@ -13,7 +13,7 @@
 #ifndef WRONGDOG_HPP
 # define WRONGDOG_HPP
 
-#include "WrongAnimal.hpp"
+# include "WrongAnimal.hpp"
 
 class WrongDog : public WrongAnimal
 {

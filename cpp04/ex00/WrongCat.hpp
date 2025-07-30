@@ -6,13 +6,14 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:54:12 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 06:05:40 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/30 06:24:21 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
-#include "WrongAnimal.hpp"
+
+# include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
