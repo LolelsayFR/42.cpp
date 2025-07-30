@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:01:13 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 07:52:28 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/30 07:50:54 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Cat.hpp"
 
 void mass(void) {
-	const Animal* mass[100];	
+	const AAnimal* mass[100];	
 
 	for (int i = 0; i <= 100; i++) {
 		std::cout << YEL "Hello animal id : " << i << RES << " " << std::endl;
@@ -30,8 +30,8 @@ void mass(void) {
 }
 
 void basic(void) {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
 
 	std::cout << j->getType() << " " << std::endl;

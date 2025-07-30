@@ -1,7 +1,9 @@
 NAME			=	Fixed
 
 SRC				=	main.cpp\
-					Fixed.cpp\
+					Animal.cpp\
+					Dog.cpp\
+					Cat.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 

@@ -1,6 +1,10 @@
 NAME			=	Poly
 
 SRC				=	main.cpp\
+					AAnimal.cpp\
+					Dog.cpp\
+					Cat.cpp\
+					Brain.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
