@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:25:28 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 11:22:20 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/30 08:29:13 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 	this->_AttackDamage = other._AttackDamage;
 	this->_DefaultHitPoint = other._HitPoints;
 	this->_Name = other._Name;
-    std::cout << "Claptrap" << RES << " copy assignement operator called : " << this->_Name<< std::endl;
+    std::cout << "ScavTrap" << RES << " copy assignement operator called : " << this->_Name<< std::endl;
 	return (*this);
 }
 
@@ -77,7 +77,7 @@ void	ScavTrap::attack(const std::string& target) {
 	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
 		return ;
 	this->_EnergyPoints--;
-	std::cout	<< "Claptrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
+	std::cout	<< "ScavTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << std::endl;
 }
 
 // Guard gate for Scavtrap
