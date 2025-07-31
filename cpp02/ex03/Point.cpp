@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 06:42:00 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/23 07:34:21 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/07/31 08:18:14 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,15 @@
 /* All constructors and destructors */
 /* ************************************************************************** */
 
-Point::Point() : _x(0), _y(0) {
+Point::Point() : x(0), y(0) {
 	// std::cout << "Default constructor called (Point)" << std::endl;
 }
 
-Point::Point(float const x, float const y) : _x(Fixed(x)), _y(Fixed(y)) {
+Point::Point(float const x, float const y) : x(Fixed(x)), y(Fixed(y)) {
 	// std::cout << "'Two float' constructor called (Point)" << std::endl;
 }
 
-Point::Point(const Point& other) {
-	*this = other;
+Point::Point(const Point& other) : x(other.getX()), y(other.getY()) {
 	// std::cout << "Copy constructor called (Point)" << std::endl;
 }
 
@@ -39,14 +38,14 @@ Point::~Point() {
 /* Getter and Setter */
 /* ************************************************************************** */
 
-const Fixed& Point::getX(void) const {
+float Point::getX(void) const {
 	// std::cout << "GetX member function called (Point)" << std::endl;
-	return (this->_x);
+	return (this->x.toFloat());
 }
 
-const Fixed& Point::getY(void) const {
+float Point::getY(void) const {
 	// std::cout << "GetY member function called (Point)" << std::endl;
-	return (this->_y);
+	return (this->y.toFloat());
 }
 
 /* ************************************************************************** */
@@ -56,6 +55,6 @@ const Fixed& Point::getY(void) const {
 // Copy operator (Cant replace const)
 Point& Point::operator=(const Point& other) {
 	// std::cout << "Copy operator called (point)" << std::endl;
-	(void) other;
+	(void)other;
 	return (*this);
 }

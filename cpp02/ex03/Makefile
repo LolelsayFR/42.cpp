@@ -3,6 +3,7 @@ NAME			=	BSP
 SRC				=	main.cpp\
 					Point.cpp\
 					Fixed.cpp\
+					bsp.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
