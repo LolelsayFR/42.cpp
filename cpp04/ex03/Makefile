@@ -1,9 +1,13 @@
 NAME			=	Fixed
 
 SRC				=	main.cpp\
-					Animal.cpp\
-					Dog.cpp\
-					Cat.cpp\
+					AMateria.cpp\
+					Character.cpp\
+					Cure.cpp\
+					Ice.cpp\
+					ICharacter.cpp\
+					IMateriaSource.cpp\
+					MateriaSource.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
