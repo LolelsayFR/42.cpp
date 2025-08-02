@@ -6,25 +6,31 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 07:26:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/31 09:07:50 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:00:31 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-float barycentre (Point const &p1, Point const &p2, Point const &point)
+float relativePosition (Point const &p1, Point const &p2, Point const &point)
 {
-	return 	(p1.getX() - point.getX()) * (p2.getY() - point.getY()) - 
-			(p2.getX() - point.getX()) * (p1.getY() - point.getY());
+    float x1 = p1.getX();
+    float y1 = p1.getY();
+    float x2 = p2.getX();
+    float y2 = p2.getY();
+    float x  = point.getX();
+    float y  = point.getY();
+
+    return (x1 - x) * (y2 - y) - (x2 - x) * (y1 - y);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
     bool b1, b2, b3;
 
-    b1 = barycentre(a, b, point) <= 0 ;
-    b2 = barycentre(b, c, point) <= 0;
-    b3 = barycentre(c, a, point) <= 0 ;
+    b1 = relativePosition(a, b, point) <= 0 ;
+    b2 = relativePosition(b, c, point) <= 0;
+    b3 = relativePosition(c, a, point) <= 0 ;
 
     return ((b1 == b2) && (b2 == b3));
 }

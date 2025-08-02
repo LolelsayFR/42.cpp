@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 23:13:40 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/31 09:05:27 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/02 03:08:26 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main( void ) {
 	const Point	a(0, 0);
 	const Point	b(1, 0);
 	const Point	c(0, 1);
-	const Point	p(0.45f, 0.5f);
+	const Point	p(0.5f, 0.49f);
 
 	std::cout << "'a' point : x = " << a.getX() << " y = " << a.getY() << std::endl;
 	std::cout << "'b' point : x = " << b.getX() << " y = " << b.getY() << std::endl;
