@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:23:45 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:52:06 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 07:59:36 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	main(void)
 	a.attack("Serena");
 	a.printInfo();
 	a.highFivesGuys();
+	a.printInfo();
 	return (0);
 }

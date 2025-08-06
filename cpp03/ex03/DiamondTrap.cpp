@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:21:51 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 06:35:45 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 08:03:30 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
 
 // Who am i
 void DiamondTrap::whoAmI(void) {
+	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
+		return ;
+	this->_EnergyPoints--;
 	std::cout << "DiamondTrap name is " << this->_Name << " and ClapTrap name is " << ClapTrap::_Name << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:27:12 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 10:53:15 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 07:30:06 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include  "ScavTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class FragTrap : public ClapTrap
 {
 public:
 	FragTrap();

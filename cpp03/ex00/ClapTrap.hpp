@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:22:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 11:15:12 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 09:45:20 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 class ClapTrap
 {
-protected:
+private:
 	std::string	_Name;
 	int			_HitPoints;
 	int			_EnergyPoints;

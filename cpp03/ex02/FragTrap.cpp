@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:25:28 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/25 11:19:42 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 07:56:10 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ void	FragTrap::attack(const std::string& target) {
 
 // Guard gate for FragTrap
 void FragTrap::highFivesGuys(void) {
+	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
+		return ;
+	this->_EnergyPoints--;
 	std::cout << "FragTrap " << this->_Name << " need a mate to make a Hight five !" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:25:28 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 08:28:24 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/06 07:56:22 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ void	ScavTrap::attack(const std::string& target) {
 
 // Guard gate for Scavtrap
 void ScavTrap::guardGate(void) {
+	if (this->_EnergyPoints <= 0 || this->_HitPoints <= 0)
+		return ;
+	this->_EnergyPoints--;
 	std::cout << "ScavTrap " << this->_Name << " is now in GateKeeper mode" << std::endl;
 }
