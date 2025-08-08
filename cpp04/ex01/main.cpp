@@ -6,25 +6,30 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:01:13 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 07:52:28 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 08:20:10 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-void mass(void) {
-	const Animal* mass[100];	
+void mass(int nb) {
+	if (nb % 2 == 1)
+		nb++;
 
-	for (int i = 0; i <= 100; i++) {
-		std::cout << YEL "Hello animal id : " << i << RES << " " << std::endl;
-		if (i < 50)
+	const Animal* mass[nb];
+	
+	for (int i = 0; i < nb; i++) {
+		std::cout << YEL "Hello animal id : " << i + 1 << RES << " " << std::endl;
+		if (i < nb / 2)
 			mass[i] = new Dog;
 		else
 			mass[i] = new Cat;
 	}
-	for (int i = 0; i <= 100; i++) {
-		std::cout << YEL "Byebye animal id : " << i << RES << " " << std::endl;
+	for (int i = 0; i < nb; i++) {
+		std::cout << YEL "Byebye animal id : " << i + 1 << RES << " " << std::endl;
 		delete mass[i];
 	}
 }
@@ -32,7 +37,6 @@ void mass(void) {
 void basic(void) {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -43,9 +47,27 @@ void basic(void) {
 	delete j;
 }
 
-int main() {
+void idea(void) {
+	Cat cat;
+
+	cat.addIdea("Miaou");
+	cat.addIdea("MiaouMiaou");
+
+	const Animal* newCat = new Cat(cat);
+
+	((Cat*)newCat)->addIdea("MiaouMiaou but in animal const pointer");
+    ((Cat*)newCat)->printIdeas();
+	delete newCat;
+}
+
+int main(int ac, char **av) {
 	std::cout << std::endl <<  BLU "Mass test :" << RES << " " << std::endl;
-	mass();
+	if (ac != 2 || std::atoi(av[1]) <= 0)
+		mass(100);
+	else
+		mass(std::atoi(av[1]));
+	std::cout << std::endl << BLU "'Idea' test :" << RES << " " << std::endl;
+	idea();
 	std::cout << std::endl << BLU "Basic test :" << RES << " " << std::endl;
 	basic();
 	return (0);

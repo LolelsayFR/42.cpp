@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:35:35 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 05:52:10 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 06:32:17 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal& other);
 	WrongAnimal& operator=(const WrongAnimal& other);
-	virtual ~WrongAnimal();
+	~WrongAnimal();
 	std::string	getType(void) const;
-	virtual void	makeSound(void) const;
+	void	makeSound(void) const;
 };
 
 #endif // WRONGANIMAL_HPP

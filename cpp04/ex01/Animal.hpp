@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:35:35 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 06:47:43 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 07:09:35 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ANIMAL_HPP
 
 # include <iostream>
-# include "Brain.hpp"
+
 
 # define RED	"\e[48;2;75;0;0;1m "
 # define GRN	"\e[48;2;0;75;0;1m "

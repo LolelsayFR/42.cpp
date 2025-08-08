@@ -6,16 +6,17 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:55:54 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 07:49:11 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 09:07:56 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "AAnimal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Dog : public AAnimal
+class Dog : public Animal
 {
 private:
 	Brain*	_brain;
@@ -25,6 +26,8 @@ public:
 	Dog& operator=(const Dog& other);
 	~Dog();
 	void	makeSound(void) const;
+	void	addIdea(std::string idea);
+	void	printIdeas(void) const;
 };
 
 #endif // DOG_HPP

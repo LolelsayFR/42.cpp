@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:54:43 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 06:06:54 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 08:21:24 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Cat::Cat(const Cat& other) {
 
 // Default destructor
 Cat::~Cat() {
-    std::cout << RED"Dog" << RES << " destructor called" << std::endl;
+    std::cout << RED"Cat" << RES << " destructor called" << std::endl;
 }
 
 

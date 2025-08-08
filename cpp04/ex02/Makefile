@@ -1,7 +1,7 @@
 NAME			=	Poly
 
 SRC				=	main.cpp\
-					AAnimal.cpp\
+					Animal.cpp\
 					Dog.cpp\
 					Cat.cpp\
 					Brain.cpp\

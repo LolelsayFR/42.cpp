@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:55:45 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 06:56:45 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 07:40:01 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,19 @@ Dog::~Dog() {
 Dog& Dog::operator=(const Dog& other) {
     std::cout << BLU"Dog" << RES << " copy assignement operator called" << std::endl;
     this->type = other.type;
+	this->_brain = other._brain;
     return (*this);
 }
 
 //Animal make sound
 void	Dog::makeSound(void) const {
 	std::cout << "BARK BARK" << std::endl;
+}
+
+void	Dog::addIdea(std::string idea) {
+	this->_brain->addIdea(idea);
+}
+
+void	Dog::printIdeas() const {
+	this->_brain->printIdeas();
 }

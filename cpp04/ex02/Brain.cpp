@@ -6,11 +6,13 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 06:17:00 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 06:21:53 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 07:41:21 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include <algorithm>
+#include <iostream>
 
 /* ************************************************************************** */
 /* All constructors and the destructor */
@@ -40,7 +42,25 @@ Brain::~Brain() {
 // Copy Operator
 Brain& Brain::operator=(const Brain& other) {
 	std::cout << BLU"Brain" << RES << " copy assignement operator called" << std::endl;
-	for (int i = 0; i <= 100; i++)
-		this->ideas[i] = other.ideas[i];
+	std::copy(other.ideas, other.ideas + 100, this->ideas);
 	return (*this);
+}
+
+/* ************************************************************************** */
+/* Member funcion */
+/* ************************************************************************** */
+
+void	Brain::addIdea(std::string idea) {
+	int i = 0;
+	while (!ideas[i].empty())
+		i++;
+	if (i <= 100)
+		ideas[i] = idea;
+	std::cout << "Add idea nb " << i << " in brain : " << idea << std::endl;
+}
+
+void	Brain::printIdeas(void) {
+	int i = 0;
+	while (!ideas[i].empty())
+		std::cout << ideas[i++] << std::endl;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 00:49:00 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/30 05:52:06 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/08 06:40:44 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ std::string	WrongAnimal::getType(void) const {
 
 //WrongAnimal make sound
 void	WrongAnimal::makeSound(void) const {
-    std::cout << "(The sound of silence bur wrong)" << std::endl;
+    std::cout << "(The sound of silence but wrong)" << std::endl;
 }
