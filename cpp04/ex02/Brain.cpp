@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 06:17:00 by emaillet          #+#    #+#             */
-/*   Updated: 2025/08/08 07:41:21 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/18 12:12:27 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	Brain::addIdea(std::string idea) {
 	int i = 0;
 	while (!ideas[i].empty())
 		i++;
-	if (i <= 100)
+	if (i < 100)
 		ideas[i] = idea;
 	std::cout << "Add idea nb " << i << " in brain : " << idea << std::endl;
 }

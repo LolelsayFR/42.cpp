@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 09:46:14 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/31 09:55:26 by emaillet         ###   ########.fr       */
+/*   Created: 2025/08/19 11:43:00 by emaillet          #+#    #+#             */
+/*   Updated: 2025/08/19 11:44:34 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-# include <iostream>
 # include "AMateria.hpp"
 
 class IMateriaSource
@@ -24,4 +23,4 @@ class IMateriaSource
 	virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
-#endif // IMATERIASOURCE_HPP
+#endif // IMateriaSource/(.*)/ATERIASOURCE/g}_HPP

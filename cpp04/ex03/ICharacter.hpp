@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/31 09:41:38 by emaillet          #+#    #+#             */
-/*   Updated: 2025/07/31 09:55:17 by emaillet         ###   ########.fr       */
+/*   Created: 2025/08/19 11:33:49 by emaillet          #+#    #+#             */
+/*   Updated: 2025/08/19 11:38:02 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-# include <iostream>
 # include "AMateria.hpp"
 
 class ICharacter
@@ -25,4 +24,5 @@ public:
 	virtual void unequip(int idx) = 0;
 	virtual void use(int idx, ICharacter& target) = 0;
 };
-#endif // ICHARACTER_HPP
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 09:01:13 by emaillet          #+#    #+#             */
-/*   Updated: 2025/08/08 08:20:10 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/08/19 12:24:15 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void idea(void) {
 
 	((Cat*)newCat)->addIdea("MiaouMiaou but in animal const pointer");
     ((Cat*)newCat)->printIdeas();
+	cat.printIdeas();
+
 	delete newCat;
 }
 
@@ -70,5 +72,6 @@ int main(int ac, char **av) {
 	idea();
 	std::cout << std::endl << BLU "Basic test :" << RES << " " << std::endl;
 	basic();
+
 	return (0);
 }

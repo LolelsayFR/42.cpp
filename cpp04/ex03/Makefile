@@ -1,19 +1,19 @@
-NAME			=	Fixed
+NAME			=	Materia
 
 SRC				=	main.cpp\
 					AMateria.cpp\
 					Character.cpp\
 					Cure.cpp\
 					Ice.cpp\
-					ICharacter.cpp\
-					IMateriaSource.cpp\
 					MateriaSource.cpp\
 
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98 -g3
 
 CXX				=	c++
 
 OBJ				= 	${SRC:.cpp=.o}
+
+DEBUG			= 	false
 
 all:	hello $(NAME)
 
@@ -36,8 +36,10 @@ fclean: hello clean
 	@echo "\e[48;2;0;0;155;1m Done \e[0m\n"
 
 %.o: %.cpp
-	${CXX} ${CFLAGS} -c $< -o $@
+	${CXX} ${CFLAGS} -c $< -D DEBUG_PRINT=$(DEBUG) -o $@
 
-re:	fclean all
+re:	
+	+make fclean
+	+make all
 
 .PHONY: all clean fclean re
