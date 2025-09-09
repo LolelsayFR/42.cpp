@@ -6,3 +6,10 @@
 */*.vscode
 */*/*.vscode
 */*/*/*.vscode
+
+# Executables
+megaphone
+nsed
+harlFilter
+phonebook
+*_test
