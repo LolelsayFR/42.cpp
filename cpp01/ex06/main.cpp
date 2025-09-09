@@ -15,7 +15,8 @@
 int main(int ac, char **av)
 {
 	if (ac != 2)
-		return (std::cout << "Insert one arg" << std::endl, ac);
+		return (std::cout << "Usage: " << av[0] << " <log_level>" << std::endl
+			<< "Available levels: DEBUG, INFO, WARNING, ERROR" << std::endl, 1);
 	Harl harl;
 	harl.complain(av[1]);
 	return (0);

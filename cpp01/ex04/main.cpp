@@ -36,7 +36,7 @@ std::string	ft_replace(std::string content, std::string search, std::string repl
 int	main(int ac, char **av)
 {
 	if (ac != 4)
-		return (std::cout << "Invalid parameter" << std::endl, 0);
+		return (std::cout << "Usage: " << av[0] << " <filename> <search> <replace>" << std::endl, 0);
 	std::fstream myFile (av[1]);
 	std::string myNewFileName = (std::string)av[1] + SUFFIX;
 	std::ofstream myNewFile(myNewFileName.c_str());
