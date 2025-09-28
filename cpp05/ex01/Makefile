@@ -1,7 +1,8 @@
-NAME			=	Fixed
+NAME			=	Form
 
 SRC				=	main.cpp\
-					Fixed.cpp\
+					Bureaucrat.cpp\
+					Form.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 

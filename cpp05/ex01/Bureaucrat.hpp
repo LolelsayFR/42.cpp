@@ -6,7 +6,7 @@
 /*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:04:26 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 10:24:07 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/28 11:29:12 by lolelsay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 private:
@@ -30,17 +33,18 @@ public:
 	Bureaucrat& operator=(Bureaucrat &other);
 	void operator++(void);
 	void operator--(void);
-	//Getter
+	//Other member functions
 	const std::string getName(void) const;
 	int getGrade(void) const;
+	void signForm(Form &form);
 	//Exeptions class
 	class GradeTooHighException : public std::exception {
-		public :
+	public :
 		virtual const char* what(void) const throw();		
 	};
 	class GradeTooLowException : public std::exception {
-		public :
-		virtual const char* what(void) const throw();		
+	public :
+		virtual const char* what(void) const throw();
 	};
 };
 

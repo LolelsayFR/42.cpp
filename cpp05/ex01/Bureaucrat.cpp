@@ -6,7 +6,7 @@
 /*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 06:57:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 10:59:30 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/28 11:45:17 by lolelsay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ std::ostream& operator<<(std::ostream& o, Bureaucrat& other) {
 }
 
 /* ************************************************************************** */
-/* Getter */
+/* Other member functions */
 /* ************************************************************************** */
 
 //Name getter
@@ -94,18 +94,29 @@ int Bureaucrat::getGrade(void) const {
 	return (this->_grade);
 }
 
+void Bureaucrat::signForm(Form& form) {
+	try {
+		form.beSigned(*this);
+	}
+	catch (std::exception& e) {
+		std::cout << *this << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << *this << " sign " << form.getName() << std::endl;
+}
+
 /* ************************************************************************** */
 /* Exeptions */
 /* ************************************************************************** */
 
 //High grade exeption
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return ("Error : Grade is too high !");
+	return ("Bureaucrat Error : Grade is too high !");
 }
 
 //Low grade exeption
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return ("Error : Grade is too low !");
+	return ("Bureaucrat Error : Grade is too low !");
 }
 
 /* ************************************************************************** */
