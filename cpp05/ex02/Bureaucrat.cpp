@@ -6,7 +6,7 @@
 /*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 06:57:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 13:50:19 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/28 15:29:28 by lolelsay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ std::ostream& operator<<(std::ostream& o, Bureaucrat& other) {
 }
 
 /* ************************************************************************** */
-/* Getter */
+/* Other member functions */
 /* ************************************************************************** */
 
 //Name getter
@@ -94,18 +94,60 @@ int Bureaucrat::getGrade(void) const {
 	return (this->_grade);
 }
 
+void Bureaucrat::signForm(AForm& form) {
+	try {
+		if (this->_grade < 1)
+			throw (Bureaucrat::GradeTooHighException());
+		if (this->_grade > 150)
+			throw (Bureaucrat::GradeTooLowException());
+	}
+	catch (std::exception& e) {
+		std::cout << "Sign form : " << e.what() << std::endl;
+		return ;
+	}
+	try {
+		form.beSigned(*this);
+	}
+	catch (std::exception& e) {
+		std::cout << *this << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << *this << " sign " << form.getName() << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const& form) {
+	try {
+		if (this->_grade < 1)
+			throw (Bureaucrat::GradeTooHighException());
+		if (this->_grade > 150)
+			throw (Bureaucrat::GradeTooLowException());
+	}
+	catch (std::exception& e) {
+		std::cout << "Execute form : " << e.what() << std::endl;
+		return ;
+	}
+	try {
+		form.execute(*this);
+	}
+	catch (std::exception& e) {
+		std::cout << *this << " couldn't executed " << form.getName() << " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << *this << " executed " << form.getName() << std::endl;
+}
+
 /* ************************************************************************** */
 /* exceptions */
 /* ************************************************************************** */
 
 //High grade exception
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return ("Error : Grade is too high !");
+	return ("Bureaucrat Error : Grade is too high !");
 }
 
 //Low grade exception
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return ("Error : Grade is too low !");
+	return ("Bureaucrat Error : Grade is too low !");
 }
 
 /* ************************************************************************** */

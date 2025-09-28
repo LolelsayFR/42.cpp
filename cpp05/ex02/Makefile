@@ -1,7 +1,11 @@
-NAME			=	Fixed
+NAME			=	MultiForm
 
 SRC				=	main.cpp\
-					Fixed.cpp\
+					Bureaucrat.cpp\
+					AForm.cpp\
+					PresidentialPardonForm.cpp\
+					RobotomyRequestForm.cpp\
+					ShrubberyCreationForm.cpp\
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 

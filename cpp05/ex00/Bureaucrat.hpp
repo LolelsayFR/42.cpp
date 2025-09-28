@@ -6,7 +6,7 @@
 /*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:04:26 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 10:24:07 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/28 13:50:19 by lolelsay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	//Getter
 	const std::string getName(void) const;
 	int getGrade(void) const;
-	//Exeptions class
+	//exceptions class
 	class GradeTooHighException : public std::exception {
 		public :
 		virtual const char* what(void) const throw();		

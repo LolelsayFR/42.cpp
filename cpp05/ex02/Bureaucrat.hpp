@@ -6,7 +6,7 @@
 /*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:04:26 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 13:50:19 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/28 14:22:27 by lolelsay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -36,7 +36,8 @@ public:
 	//Other member functions
 	const std::string getName(void) const;
 	int getGrade(void) const;
-	void signForm(Form &form);
+	void signForm(AForm& form);
+	void executeForm(AForm const& form);
 	//exceptions class
 	class GradeTooHighException : public std::exception {
 	public :
