@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:13:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 15:28:01 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:12:41 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,69 @@ int	main(int ac, char **av) {
 		std::cout << base << assign << copy << std::endl;
 	}
 	std::cout << WHI"All execute test from the USER (Add grade in argument, default is 1)" << RES << std::endl;
-	Bureaucrat user("USER", userGrade);
-	PresidentialPardonForm pardon("White house");
-	RobotomyRequestForm robot("Plankton");
-	ShrubberyCreationForm tree("Mojo");
-	std::cout << user << std::endl << pardon << robot << tree << std::endl;
-	user.executeForm(pardon);
-	user.executeForm(robot);
-	user.executeForm(tree);
-	user.signForm(pardon);
-	user.signForm(robot);
-	user.signForm(tree);
-	std::cout << pardon << robot << tree << std::endl;
-	user.executeForm(pardon);
-	user.executeForm(robot);
-	user.executeForm(tree);
+	try {
+		Bureaucrat user("USER", userGrade);
+		PresidentialPardonForm pardon("White house");
+		RobotomyRequestForm robot("Plankton");
+		ShrubberyCreationForm tree("Mojo");
+		std::cout << user << std::endl << pardon << robot << tree << std::endl;
+		try {
+			user.executeForm(pardon);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.executeForm(robot);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.executeForm(tree);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.signForm(pardon);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.signForm(robot);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.signForm(tree);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.executeForm(pardon);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.executeForm(robot);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		try {
+			user.executeForm(tree);
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

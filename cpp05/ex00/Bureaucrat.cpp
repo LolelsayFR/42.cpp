@@ -24,15 +24,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 
 //All assignation operator
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade) {
-	try {
-		if (grade < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		if (grade > 150)
-			throw (Bureaucrat::GradeTooLowException());
-	}
-	catch (std::exception& e) {
-		std::cout << "Constructor : " << e.what() << std::endl;
-	}
+	if (grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 }
 
 //Default destructor
@@ -49,29 +44,19 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& other) {
 }
 
 //decrement the bureaucrat’s grade
-void Bureaucrat::operator--(void){
-	try {
-		if (this->_grade - 1 < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		else
-			this->_grade--;
-	}
-	catch (std::exception& e) {
-		std::cout << "Grade increment : " << e.what() << std::endl;
-	}
+void Bureaucrat::operator++(void) {
+	if (this->_grade - 1 < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	else
+		this->_grade--;
 }
 
 //increment the bureaucrat’s grade
-void Bureaucrat::operator++(void){
-	try {
-		if (this->_grade + 1 > 150)
-			throw (Bureaucrat::GradeTooLowException());
-		else
-			this->_grade++;
-	}
-	catch (std::exception& e) {
-		std::cout << "Grade decrement : " << e.what() << std::endl;
-	}
+void Bureaucrat::operator--(void) {
+	if (this->_grade + 1 > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	else
+		this->_grade++;
 }
 
 //Ostream insertion operator

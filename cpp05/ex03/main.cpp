@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:13:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 16:53:21 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/29 11:18:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,34 @@
 int	main(void) {
 	int userGrade = 1;
 	std::string target = "Lehon Smuk";
-	std::string name = "Robotomy request";
+	std::string name = "robotomy request";
 	
-	
-	Intern billy;
-	AForm* form = billy.makeForm(name, target);
-	std::cout << WHI"All execute test from the USER" << RES << std::endl;
-	Bureaucrat user("USER", userGrade);
-	std::cout << user << std::endl << *form  << std::endl;
-	user.executeForm(*form);
-	user.signForm(*form);
-	std::cout << *form << std::endl;
-	user.executeForm(*form);
-	delete form;
+	try {
+		Intern billy;
+		AForm* form;
+		form = billy.makeForm(name, target);
+		std::cout << WHI"All execute test from the USER" << RES << std::endl;
+		
+		try {
+			Bureaucrat user("USER", userGrade);
+			std::cout << user << std::endl << *form  << std::endl;
+			try {
+				user.executeForm(*form);
+			}
+			catch (std::exception& e) {
+				std::cout << e.what() << std::endl;
+			}
+			user.signForm(*form);
+			std::cout << *form << std::endl;
+			user.executeForm(*form);
+			delete form;
+		}
+		catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

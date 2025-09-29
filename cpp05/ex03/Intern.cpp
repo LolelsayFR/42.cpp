@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:34:11 by lolelsay          #+#    #+#             */
-/*   Updated: 2025/09/28 16:50:46 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/09/29 09:57:13 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,23 @@ Intern& Intern::operator=(Intern& other) {
 /* ************************************************************************** */
 
 AForm* Intern::makeForm(std::string name, std::string target) const{
-	if (name == "Presidential Pardon" || name == "Presidential pardon")
+	if (name == "presidential pardon")
 		return (new PresidentialPardonForm(target));
-	if (name == "Robotomy Request" || name == "Robotomy request")
+	if (name == "robotomy request")
 		return (new RobotomyRequestForm(target));
-	if (name == "Shrubbery Creation" || name == "Shrubbery creation")
+	if (name == "shrubbery creation")
 		return (new ShrubberyCreationForm(target));
+	throw(Intern::CantMakeFormException());
 	return (NULL);
+}
+
+/* ************************************************************************** */
+/* All exceptions */
+/* ************************************************************************** */
+
+//Make form exception
+const char* Intern::CantMakeFormException::what(void) const throw(){
+	return ("Error : Could not find an appropriate form to create!");
 }
 
 /* ************************************************************************** */

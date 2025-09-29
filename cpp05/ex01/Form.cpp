@@ -21,15 +21,10 @@ Form::Form(void) : _name("Basic Form"), _gradeToExecute(150), _gradeToSign(150),
 
 //Asignation constructor
 Form::Form(const std::string name, const int gts, const int gte) : _name(name), _gradeToExecute(gte), _gradeToSign(gts), _isSigned(false)  {
-	try {
-		if (gts < 1 || gte < 1)
-			throw (Form::GradeTooHighException());
-		if (gts > 150 || gte > 150)
-			throw (Form::GradeTooLowException());
-	}
-	catch (std::exception& e) {
-		std::cout << "Constructor : " << e.what() << std::endl;
-	}
+	if (gts < 1 || gte < 1)
+		throw (Form::GradeTooHighException());
+	if (gts > 150 || gte > 150)
+		throw (Form::GradeTooLowException());
 } 
 
 //Copy constructor

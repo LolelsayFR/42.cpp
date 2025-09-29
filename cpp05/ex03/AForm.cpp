@@ -21,15 +21,10 @@ AForm::AForm(void) : _name("Basic AForm"), _gradeToExecute(150), _gradeToSign(15
 
 //Asignation constructor
 AForm::AForm(const std::string name, const int gts, const int gte) : _name(name), _gradeToExecute(gte), _gradeToSign(gts), _isSigned(false)  {
-	try {
-		if (gts < 1 || gte < 1)
-			throw (AForm::GradeTooHighException());
-		if (gts > 150 || gte > 150)
-			throw (AForm::GradeTooLowException());
-	}
-	catch (std::exception& e) {
-		std::cout << "Constructor : " << e.what() << std::endl;
-	}
+	if (gts < 1 || gte < 1)
+		throw (AForm::GradeTooHighException());
+	if (gts > 150 || gte > 150)
+		throw (AForm::GradeTooLowException());
 } 
 
 //Copy constructor
