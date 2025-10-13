@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:13:52 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/29 11:18:42 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/13 12:54:54 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ int	main(void) {
 	int userGrade = 1;
 	std::string target = "Lehon Smuk";
 	std::string name = "robotomy request";
-	
+	AForm* form = NULL;
 	try {
 		Intern billy;
-		AForm* form;
 		form = billy.makeForm(name, target);
 		std::cout << WHI"All execute test from the USER" << RES << std::endl;
 		
@@ -43,7 +42,6 @@ int	main(void) {
 			user.signForm(*form);
 			std::cout << *form << std::endl;
 			user.executeForm(*form);
-			delete form;
 		}
 		catch (std::exception& e) {
 			std::cout << e.what() << std::endl;
@@ -52,5 +50,7 @@ int	main(void) {
 	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
+	if (form != NULL)
+		delete form;	
 	return (0);
 }

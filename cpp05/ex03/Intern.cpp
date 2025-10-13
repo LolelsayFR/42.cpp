@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:34:11 by lolelsay          #+#    #+#             */
-/*   Updated: 2025/09/29 09:57:13 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:30:36 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,27 @@ Intern& Intern::operator=(Intern& other) {
 /* All other member functions */
 /* ************************************************************************** */
 
+static AForm* makePresidentialForm(std::string target)	{	return (new PresidentialPardonForm(target));	}
+static AForm* makeRobotForm(std::string target)			{	return (new RobotomyRequestForm(target));		}
+static AForm* makeShrubberyForm(std::string target) 	{	return (new ShrubberyCreationForm(target));		}
+
 AForm* Intern::makeForm(std::string name, std::string target) const{
-	if (name == "presidential pardon")
-		return (new PresidentialPardonForm(target));
-	if (name == "robotomy request")
-		return (new RobotomyRequestForm(target));
-	if (name == "shrubbery creation")
-		return (new ShrubberyCreationForm(target));
-	throw(Intern::CantMakeFormException());
-	return (NULL);
+	int i = 0;
+	std::string formName[3] = {
+		"presidential pardon",
+		"robotomy request",
+		"shrubbery creation"
+	};
+	AForm* (*func[3])(std::string target) = {
+		&makePresidentialForm,
+		&makeRobotForm,
+		&makeShrubberyForm
+	};
+	while (i < 3 && name != formName[i])
+		i++;
+	if (i >= 3)
+		throw(Intern::CantMakeFormException());
+	return (func[i](target));
 }
 
 /* ************************************************************************** */
