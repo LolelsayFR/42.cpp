@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolelsay <lolelsay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 06:57:46 by emaillet          #+#    #+#             */
-/*   Updated: 2025/09/28 15:29:28 by lolelsay         ###   ########.fr       */
+/*   Updated: 2025/10/22 13:04:58 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,19 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat& other) {
 
 //decrement the bureaucrat’s grade
 void Bureaucrat::operator++(void) {
-	if (this->_grade - 1 < 1)
+	if (this->_grade < 1 || this->_grade - 1 < 1)
 		throw (Bureaucrat::GradeTooHighException());
+	if (this->_grade > 150)
+		throw (Bureaucrat::GradeTooLowException());
 	else
 		this->_grade--;
 }
 
 //increment the bureaucrat’s grade
 void Bureaucrat::operator--(void) {
-	if (this->_grade + 1 > 150)
+	if (this->_grade < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	if (this->_grade > 150 || this->_grade + 1 > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	else
 		this->_grade++;
