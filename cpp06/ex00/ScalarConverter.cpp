@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:13:43 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/24 11:32:02 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/24 13:55:25 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ ScalarConverter& ScalarConverter::operator=(ScalarConverter&other) {(void)other;
 
 bool isChar(std::string s) {
 	char*	stash = NULL;
-	double	value = std::strtod(s.c_str(), &stash);
+	double	value = std::strtol(s.c_str(), &stash, 10);
 
-	if (s[1] == '\0')
+	if (s[1] == '\0' && !std::isdigit(s[0]) && isascii(s[0]))
 		return (true);
 	else if (isascii(value) && (std::string(stash).empty() || (stash[0] == 'f'	&& stash[1] == '\0')) && value == (int)value)
 		return (true);
@@ -45,12 +45,18 @@ void ScalarConverter::convert(char* str) {
 	char *stash;
 
 	{//CHAR CONVERSION
-		if (isChar(str) && ((str[1] == '\0' && !std::isprint(str[0])) || (str[1] != '\0' && !std::isprint(std::strtod(str, NULL)))))
-			std::cout << "Char   : Non displayable" << std::endl;
-		else if (isChar(str) && str[1] == '\0') 
-			std::cout << "Char   : '" << static_cast<char>(str[0]) << "'" << std::endl;
-		else if (isChar(str))
-			std::cout << "Char   : '" << static_cast<char>(std::strtod(str, NULL) / 1) << "'" << std::endl;
+		if (isChar(str) && str[1] == '\0' && str[0] != '\0' && !std::isdigit(str[0])) {
+			if (std::isprint(static_cast<char>(str[0])))
+				std::cout << "Char   : '" << static_cast<char>(str[0]) << "'" << std::endl;
+			else
+				std::cout << "Char   : Not displayble" << std::endl;
+		}
+		else if (isChar(str)) {
+			if (std::isprint(static_cast<char>(std::strtol(str, NULL, 10))))
+				std::cout << "Char   : '" << static_cast<char>(std::strtol(str, NULL, 10)) << "'" << std::endl;
+			else
+				std::cout << "Char   : Not displayble" << std::endl;
+		}
 		else if (isChar(str) == false)
 			std::cout << "Char   : impossible" << std::endl;
 	}
@@ -59,8 +65,8 @@ void ScalarConverter::convert(char* str) {
 		if (l < INT_MIN || l > INT_MAX)
 			std::cout << "Int    : impossible (out of range)" << std::endl;
 		else {
-			int i = static_cast<int>(std::strtol(str, &stash, 10));
-			if (stash[0] == '\0' || ((stash[0] == 'f') && stash[1] == '\0'))
+			int i = static_cast<int>(std::strtod(str, &stash));
+			if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
 				std::cout << "Int    : " << i << std::endl;
 			else
 				std::cout << "Int    : impossible" << std::endl;
