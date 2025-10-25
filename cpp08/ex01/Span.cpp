@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:14:04 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 16:21:39 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/25 16:41:38 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 /* ************************************************************************** */
 
 // Default constructor
-Span::Span() : N(0), list(0) {}
+Span::Span() : N(0), list() {}
 
 // Copy constructor
 Span::Span(const Span& other) : N(other.N), list(other.list) {}
 
 // Parameterized constructor
-Span::Span(int N) : N(N), list(0) {}
+Span::Span(int N) : N(N), list() {}
 
 // Default destructor
 Span::~Span() {
