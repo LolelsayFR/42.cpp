@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:02 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 13:17:52 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:41:51 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <stdexcept>
 
 
-template <typename T> class Array {
+template <typename T>
+class Array {
 private:
 	unsigned int _size;
 	T* _data;
