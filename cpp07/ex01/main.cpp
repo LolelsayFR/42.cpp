@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:23 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 13:49:25 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:50:20 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void print(int const& i) {
 
 int main( void ) {
 	int intArray[] = {0, 1, 2, 3, 4};
-	std::cout << "💠Integer array:" << std::endl;
+	std::cout << "💠 Integer array:" << std::endl;
 	iter<int>(intArray, 5, print); //explicit template instantiation
 
 	std::cout << std::endl;
 
 	std::string strArray[] = {"Hello", "World", "Bernard", "Chuck", "Norris"};
-	std::cout << "💠String array:" << std::endl;
+	std::cout << "💠 String array:" << std::endl;
 	iter(strArray, 5, print); //implicit template instantiation
 
 	return 0;
