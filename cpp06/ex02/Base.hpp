@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 11:01:13 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 08:39:29 by emaillet         ###   ########.fr       */
+/*   Created: 2025/10/25 10:14:35 by emaillet          #+#    #+#             */
+/*   Updated: 2025/10/25 10:15:22 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class ScalarConverter {
+class Base {
 public:
-	ScalarConverter(void);
-	~ScalarConverter(void);
-	ScalarConverter(ScalarConverter& other);
-	ScalarConverter& operator=(ScalarConverter& other);
-	static void convert(char *str);
+	virtual ~Base() {}
 };
