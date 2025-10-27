@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:13:43 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/27 08:35:15 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/27 10:00:01 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ScalarConverter::convert(char* str) {
 		if (isChar(str) && str[1] == '\0' && str[0] != '\0' && !std::isdigit(str[0])) {
 			if (std::isprint(static_cast<char>(str[0])))
 				std::cout << "Char   : '" << static_cast<char>(str[0]) << "'" << std::endl;
-			else
+			else 
 				std::cout << "Char   : Non displayble" << std::endl;
 		}
 		else if (isChar(str)) {
@@ -62,7 +62,9 @@ void ScalarConverter::convert(char* str) {
 	}
 	{//INT CONVERSION
 		long l = static_cast<long>(std::strtol(str, &stash, 10));
-		if (l < INT_MIN || l > INT_MAX)
+		if (str[1] == '\0' && !isdigit(str[0]))
+			std::cout << "Int    : " << static_cast<double>(str[0]) << std::endl;
+		else if (l < INT_MIN || l > INT_MAX)
 			std::cout << "Int    : impossible (overflow)" << std::endl;
 		else {
 			int i = static_cast<int>(std::strtol(str, &stash, 10));
@@ -74,14 +76,18 @@ void ScalarConverter::convert(char* str) {
 	}
 	{//FLOAT CONVERSION
 		float f = static_cast<float>(std::strtof(str, &stash));
-		if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
+		if (str[1] == '\0' && !isdigit(str[0]))
+			std::cout << "Float  : " << static_cast<double>(str[0]) << ".0f" << std::endl;
+		else if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
 			std::cout << "Float  : " << f << 'f' << std::endl;
 		else
 			std::cout << "Float  : impossible" << std::endl;
 	}
 	{//DOUBLE CONVERSION
 		double d = static_cast<double>(std::strtod(str, &stash));
-		if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
+		if (str[1] == '\0' && !isdigit(str[0]))
+			std::cout << "Double : " << static_cast<double>(str[0]) << ".0" << std::endl;
+		else if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
 			std::cout << "Double : " << d << std::endl;
 		else
 			std::cout << "Double : impossible" << std::endl;
