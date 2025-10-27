@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 10:15:50 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 11:26:42 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/27 09:16:26 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void identify(Base* base) {
 
 void identify(Base& base) {
 	try {
-		dynamic_cast<A&>(base);
+		(void)dynamic_cast<A&>(base);
 		std::cout << "A" << std::endl;
 		return ;
 	}
 	catch (std::exception& e) {}
 	try {
-		dynamic_cast<B&>(base);
+		(void)dynamic_cast<B&>(base);
 		std::cout << "B" << std::endl;
 		return ;
 	}
 	catch (std::exception& e) {}
 	try {
-		dynamic_cast<C&>(base);
+		(void)dynamic_cast<C&>(base);
 		std::cout << "C" << std::endl;
 		return ;
 	}
