@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:13:43 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/27 08:53:59 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/27 09:12:58 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ std::ostream& operator<<(std::ostream& os, const Data& data) {
 
 Serializer::Serializer(void) {}
 
-Serializer::Serializer(Serializer&other) {(void)other;}
+Serializer::Serializer(const Serializer&other) {(void)other;}
 
 Serializer::~Serializer(void) {}
 

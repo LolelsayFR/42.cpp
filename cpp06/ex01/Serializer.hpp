@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 11:01:13 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/27 08:43:38 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/27 09:12:45 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ struct Data {
 
 
 class Serializer {
-public:
+private:
 	Serializer(void);
+	Serializer(const Serializer& other);
+public:
 	~Serializer(void);
-	Serializer(Serializer& other);
 	Serializer& operator=(Serializer& other);
-	uintptr_t serialize(Data* ptr);
-	Data* deserialize(uintptr_t raw);
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
 };
 
 std::ostream& operator<<(std::ostream& os, const Data& fable);
