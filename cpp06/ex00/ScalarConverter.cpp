@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:13:43 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/27 10:00:01 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/27 10:15:43 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ void ScalarConverter::convert(char* str) {
 		else if (l < INT_MIN || l > INT_MAX)
 			std::cout << "Int    : impossible (overflow)" << std::endl;
 		else {
-			int i = static_cast<int>(std::strtol(str, &stash, 10));
-			if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0') || (stash[0] == '.'))
+			int i = static_cast<int>(std::strtod(str, &stash));
+			if (str[0] == 'i' || str[0] == 'n')
+				std::cout << "Int    : impossible" << std::endl;
+			else if (stash[0] == '\0' || (stash[0] == 'f' && stash[1] == '\0'))
 				std::cout << "Int    : " << i << std::endl;
 			else
 				std::cout << "Int    : impossible" << std::endl;
