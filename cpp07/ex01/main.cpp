@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:23 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/29 09:41:50 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/10/29 10:58:50 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void print(std::string const& str) {
 	std::cout << "String: " << str << std::endl;
 }
 
-void print(int const& i) {
+void print(int & i) {
 	std::cout << "Integer: " << i << std::endl;
 }
 
