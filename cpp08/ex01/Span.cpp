@@ -89,6 +89,8 @@ void Span::addRange(int quantity) {
 		int rval = rand();
 		list.push_back(rval % __INT_MAX__);
 	}
+
+add generator from algorithm
 };
 
 const char* Span::SpanIsFullException::what(void) const throw() {
