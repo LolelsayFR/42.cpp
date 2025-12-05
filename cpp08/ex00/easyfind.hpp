@@ -25,6 +25,7 @@ void easyfind(T& container, const int& i) {
 	for (typename T::iterator it = container.begin(); it != container.end(); ++pos, ++it) {
 		if (*it == i) {
 			std::cout << "🤑 Value found for "<< i <<" !! Pos = " << pos << std::endl;
+note ne pas parcourire manuelement et plutot faire un find
 			return ;
 		}
 	}
