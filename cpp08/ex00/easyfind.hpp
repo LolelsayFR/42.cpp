@@ -6,11 +6,13 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:13:56 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 14:49:27 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:50:11 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <algorithm>
 
 class NotFoundException : public std::exception {
 public :
@@ -21,13 +23,10 @@ public :
 
 template<typename T>
 void easyfind(T& container, const int& i) {
-	int pos = 0;
-	for (typename T::iterator it = container.begin(); it != container.end(); ++pos, ++it) {
-		if (*it == i) {
-			std::cout << "🤑 Value found for "<< i <<" !! Pos = " << pos << std::endl;
-note ne pas parcourire manuelement et plutot faire un find
-			return ;
-		}
+	typename T::iterator it = std::find(container.begin(), container.end(), i);
+	if (it != container.end()) {
+		std::cout << "🤑 Value found for " << i << " !! Pos = " << std::distance(container.begin(), it) << std::endl;
+		return;
 	}
 	throw NotFoundException();
 }

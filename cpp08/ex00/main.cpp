@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:29 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 14:50:13 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:51:06 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main( void ) {
 		std::cout << e.what() << std::endl;
 	}
 	try {
-		easyfind(vec, 3);
+		easyfind(vec, 1);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
