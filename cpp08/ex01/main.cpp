@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:23 by emaillet          #+#    #+#             */
-/*   Updated: 2025/10/25 16:22:01 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/12/13 21:21:35 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int main( void ) {
 	}
 	{
 		std::cout << "\n💠 Exception test (Span is full)" << std::endl;
-		Span sp = Span();
+		// create a span with capacity 0 to test "full" behavior
+		Span sp = Span(0);
 		try {
 			sp.addNumber(6);
 		}
