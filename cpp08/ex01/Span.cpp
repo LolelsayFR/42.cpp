@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:14:04 by emaillet          #+#    #+#             */
-/*   Updated: 2025/12/13 21:35:05 by emaillet         ###   ########.fr       */
+/*   Updated: 2025/12/13 21:45:04 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ int Span::shortestSpan(void) {
 
 int Span::longestSpan(void) {
 	if (list.size() < 2)
-		throw Span::SpanCantCompareException();
-	std::vector<int> tmp(list.begin(), list.end());
-	std::sort(tmp.begin(), tmp.end());
-	return tmp.back() - tmp.front();
+		throw SpanCantCompareException();
+    int minVal = *std::min_element(list.begin(), list.end());
+    int maxVal = *std::max_element(list.begin(), list.end());
+    return maxVal - minVal;
 }
 
 void Span::addNumber(int number) {
