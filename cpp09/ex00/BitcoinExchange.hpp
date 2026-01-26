@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:56:23 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/26 16:08:22 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/26 16:42:48 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ public:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange& operator=(const BitcoinExchange& other);
 	void lineIter(std::string line, std::string context);
-	double exchange(std::string date, double value);
-	void printCsv(void);
 };
 
 std::string dateParser(std::string date, std::string context);

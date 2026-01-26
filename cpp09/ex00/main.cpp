@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:29 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/26 16:31:05 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/26 18:16:18 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,41 @@
 /* Utils function */
 /* ************************************************************************** */
 
+// https://www.gladir.com/CODER/CPP/isleapyear.htm
+int IsLeapYear(int year) {
+    return ((year & 3) == 0) && (((year % 100) != 0) || ((year % 400) == 0));
+}
+
+bool isDateValid(int y, int m, int d) {
+	if (m < 1 || m > 12 || d < 1)
+		return (false);
+	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	if (IsLeapYear(y))
+		daysInMonth[1] = 29;
+	if (d > daysInMonth[m - 1])
+		return (false);
+	return (true);
+}
+
 std::string dateParser(std::string date, std::string context) {
+	int i = 0, c = 0;
 	if (date[date.length() - 1] == ' ')
 		date.erase(date.length() - 1);
 	std::string	dateValue[3];
 	dateValue[0] = date.substr(0, date.find('-'));
 	dateValue[1] = date.substr(date.find('-') + 1, date.rfind('-') - date.find('-') - 1);
 	dateValue[2] = date.substr(date.rfind('-') + 1, date.length() - date.rfind('-') - 1);
-
-	if (dateValue[0].length() != 4 || 
-		dateValue[1].length() != 2 || 
-		dateValue[2].length() != 2)
+	while (date[i]) {
+		if (date[i] == '-')
+			c++;
+		i++;
+	}
+	if (c != 2 || 
+		dateValue[0].length() != 4 || 
+		dateValue[1].length() != 2 ||
+		dateValue[2].length() != 2 ||
+		!isDateValid(atoi(dateValue[0].c_str()), atoi(dateValue[1].c_str()), atoi(dateValue[2].c_str())))
 		throw (errorException(E_MSG_BAD_INPUT + date + "(" + context + ")"));
-
 	return (date);
 }
 
@@ -69,12 +91,12 @@ int main(int argc, char const *argv[])
 {
 	std::cout.precision(10);
 	try {
+		if (argc != 2)
+			throw (errorException("Invalid number of arguments"));
 		std::ifstream file(argv[1]);
 		std::string	line;
 		if (!file.is_open())
 			throw (errorException("Could not open file : " + std::string(argv[1])));
-		if (argc != 2)
-			throw (errorException("Invalid number of arguments"));
 		std::string inputFilePath = argv[1];
 		BitcoinExchange btc = csvParser();
 		//btc.printCsv();

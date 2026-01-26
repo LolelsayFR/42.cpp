@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:57:26 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/26 16:28:08 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:32:44 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /* ************************************************************************** */
 
 errorException::errorException(std::string msg) throw(): msg(ERROR_PREFIX + msg) {};
-const char* errorException::what(void) const throw() { return (msg.c_str()); };
+const char* errorException::what(void) const throw() { return (this->msg.c_str()); };
 errorException::~errorException() throw() {};
 
 /* ************************************************************************** */
@@ -56,26 +56,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
 /* Other member function */
 /* ************************************************************************** */
 
-void BitcoinExchange::printCsv(void) {
-	std::map<std::string, double> ::iterator it = this->dataMap.begin();
-	std::map<std::string, double> ::iterator end = this->dataMap.end();
-	while (it != end) {
-		if (it->second > 0)
-			std::cout << it->first << " = " << it->second << std::endl;
-		it++;
-	}
-}
-
-double BitcoinExchange::exchange(std::string date, double value) {
-	std::map<std::string, double> ::iterator it = this->dataMap.begin();
-	std::map<std::string, double> ::iterator end = this->dataMap.end();
-
-	while (it != end && it->first <= date) {
-		it++;
-	}
-	return (value / it->second);
-}
-
 //line parser (format : date | value)
 void BitcoinExchange::lineIter(std::string line, std::string context) {
 	try {
@@ -92,8 +72,10 @@ void BitcoinExchange::lineIter(std::string line, std::string context) {
 			throw (errorException(E_MSG_NEGATIVE_VALUE + std::string(" (" + context + ")")));
 		if (resultValue > 1000)
 			throw (errorException(E_MSG_TOO_LARGE_VALUE + std::string(" (" + context + ")")));
-
-		std::cout << date << "=> " << resultValue << " = "  << this->exchange(date, resultValue) << std::endl;
+		if (this->dataMap.lower_bound(date) == this->dataMap.end())
+			std::cout << date << "=> " << resultValue << " = "  << (resultValue * (--this->dataMap.end())->second) << std::endl;
+		else
+			std::cout << date << "=> " << resultValue << " = "  << (resultValue * this->dataMap.lower_bound(date)->second) << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
