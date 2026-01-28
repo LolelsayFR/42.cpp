@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:29 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 10:32:00 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/28 11:41:44 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ bool isDateValid(int y, int m, int d) {
 
 tm dateParser(std::string date, std::string context) {
 	int i = 0, c = 0;
-	if (date[date.length() - 1] == ' ')
-		date.erase(date.length() - 1);
 	std::string	dateValue[3];
 	dateValue[0] = date.substr(0, date.find('-', 1));
 	dateValue[1] = date.substr(date.find('-', 1) + 1, date.rfind('-') - date.find('-', 1) - 1);
@@ -48,12 +46,13 @@ tm dateParser(std::string date, std::string context) {
 		i++;
 	}
 	if (c != 2 || 
-		dateValue[1].length() != 2 ||
-		dateValue[2].length() != 2 ||
 		!isDateValid(atoi(dateValue[0].c_str()), atoi(dateValue[1].c_str()), atoi(dateValue[2].c_str())))
 		throw (errorException(E_MSG_BAD_INPUT + date + " (" + context + ")"));
 	tm result;
-	result.tm_year = atoi(dateValue[0].c_str());
+	long yearCheck = strtol(dateValue[0].c_str(), NULL, 10);
+	if (yearCheck > INT_MAX || yearCheck < INT_MIN)
+		throw (errorException(E_MSG_BAD_INPUT_YO + date + " (" + context + ")"));
+	result.tm_year = yearCheck;
 	result.tm_mon = atoi(dateValue[1].c_str());
 	result.tm_mday = atoi(dateValue[2].c_str());
 	return (result);
@@ -81,7 +80,10 @@ BitcoinExchange csvParser(void) {
 		if (date.empty() || value.empty())
 			throw (errorException("CSV parsing error : " + line + " -> " + std::string(CSVPATH)));
 		tm resultDate = dateParser(date, std::string(CSVPATH));
-		double resultValue = std::strtod(value.c_str(), NULL);
+		char* stash;
+		double resultValue = std::strtod(value.c_str(), &stash);
+		if (!std::string(stash).empty())
+			throw (errorException("CSV parsing error : " + line + " -> " + std::string(CSVPATH)));
 		valueMap[resultDate] = resultValue;
 		i++;
 	}
@@ -104,7 +106,7 @@ int main(int argc, char const *argv[])
 			throw (errorException("Could not open file : " + std::string(argv[1])));
 		std::string inputFilePath = argv[1];
 		BitcoinExchange btc = csvParser();
-		btc.printCsv();
+		//btc.printCsv(); //Debug
 		getline(file, line);
 		if (line != "date | value")
 			throw (errorException("Invalid txt header : " + std::string(argv[1])));

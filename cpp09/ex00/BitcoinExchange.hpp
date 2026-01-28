@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:56:23 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 10:11:32 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/28 12:26:03 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@
 #include <cstdlib>
 #include <fstream>
 #include <ctime>
+#include <limits.h>
+#include <iomanip>
 
 #define CSVPATH "./data.csv"
-#define ERROR_PREFIX "Error : "
-#define E_MSG_BAD_INPUT "Bad input => "
-#define E_MSG_NEGATIVE_VALUE "Negative value"
-#define E_MSG_TOO_LARGE_VALUE "Value too large"
+#define ERROR_PREFIX "Error: "
+#define E_MSG_BAD_INPUT "bad input => "
+#define E_MSG_BAD_INPUT_YO "bad input (Year int overflow) => "
+#define E_MSG_NEGATIVE_VALUE "not a positive number."
+#define E_MSG_TOO_LARGE_VALUE "too large a number."
 
 /* ************************************************************************** */
 /* Exception */
@@ -69,6 +72,7 @@ public:
 	BitcoinExchange& operator=(const BitcoinExchange& other);
 	void lineIter(std::string line, std::string context);
 	void printCsv(void);
+	double findDate(tm date);
 };
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:57:26 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 10:31:47 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/28 12:40:18 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,36 @@ bool operator<(const tm &a, const tm &b) {
 	return (a.tm_mday < b.tm_mday);
 }
 
+bool operator==(const tm &a, const tm &b) {
+	if (a.tm_year != b.tm_year)
+		return (false);
+	if (a.tm_mon != b.tm_mon)
+		return (false);
+	return (a.tm_mday == b.tm_mday);
+}
+
 /* ************************************************************************** */
 /* Other member function */
 /* ************************************************************************** */
+
+//print util
+void printResult(tm date, int base, double value) {
+			std::cout << std::setw(4) << std::setfill('0') << date.tm_year << '-'
+				<< std::setw(2) << std::setfill('0') << date.tm_mon << '-'
+				<< std::setw(2) << std::setfill('0') << date.tm_mday
+				<< " => " << base << " = " << value << std::endl;
+}
+
+//Value finder
+double BitcoinExchange::findDate(tm date) {
+	for (std::map<tm, double, compareDate>::iterator it = this->dataMap.begin(); it != this->dataMap.end(); it++) {
+		if (date == it->first || (date < it->first && it == this->dataMap.begin()))
+			return ((it)->second);
+		if (date < it->first)
+			return ((--it)->second);
+	}
+	return ((--this->dataMap.end())->second);
+}
 
 //line parser (format : date | value)
 void BitcoinExchange::lineIter(std::string line, std::string context) {
@@ -82,16 +109,16 @@ void BitcoinExchange::lineIter(std::string line, std::string context) {
 		std::string	value = line.substr(sep + 1);
 		if (value.empty())
 			throw (errorException(E_MSG_BAD_INPUT + line + " (" + context + ")"));
-		double resultValue = std::strtod(value.c_str(), NULL);
+		char* stash;
+		double resultValue = std::strtod(value.c_str(), &stash);
+		if (!std::string(stash).empty())
+			throw (errorException(E_MSG_BAD_INPUT + line + " (" + context + ")"));
 		if (resultValue < 0)
 			throw (errorException(E_MSG_NEGATIVE_VALUE + std::string(" (" + context + ")")));
 		if (resultValue > 1000)
 			throw (errorException(E_MSG_TOO_LARGE_VALUE + std::string(" (" + context + ")")));
 		tm date_tm = dateParser(date, context);
-		if (this->dataMap.lower_bound(date_tm) == this->dataMap.end())
-			std::cout << date << "=> " << resultValue << " = "  << (resultValue * (--this->dataMap.end())->second) << std::endl;
-		else
-			std::cout << date << "=> " << resultValue << " = "  << (resultValue * this->dataMap.lower_bound(date_tm)->second) << std::endl;
+		printResult(date_tm, resultValue, resultValue * findDate(date_tm));
 	}
 	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
