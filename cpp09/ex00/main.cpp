@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:29 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/26 18:16:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/28 10:32:00 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,36 @@ bool isDateValid(int y, int m, int d) {
 	return (true);
 }
 
-std::string dateParser(std::string date, std::string context) {
+tm dateParser(std::string date, std::string context) {
 	int i = 0, c = 0;
 	if (date[date.length() - 1] == ' ')
 		date.erase(date.length() - 1);
 	std::string	dateValue[3];
-	dateValue[0] = date.substr(0, date.find('-'));
-	dateValue[1] = date.substr(date.find('-') + 1, date.rfind('-') - date.find('-') - 1);
+	dateValue[0] = date.substr(0, date.find('-', 1));
+	dateValue[1] = date.substr(date.find('-', 1) + 1, date.rfind('-') - date.find('-', 1) - 1);
 	dateValue[2] = date.substr(date.rfind('-') + 1, date.length() - date.rfind('-') - 1);
+	if (date[0] == '-')
+		i = 1;
 	while (date[i]) {
 		if (date[i] == '-')
 			c++;
 		i++;
 	}
 	if (c != 2 || 
-		dateValue[0].length() != 4 || 
 		dateValue[1].length() != 2 ||
 		dateValue[2].length() != 2 ||
 		!isDateValid(atoi(dateValue[0].c_str()), atoi(dateValue[1].c_str()), atoi(dateValue[2].c_str())))
-		throw (errorException(E_MSG_BAD_INPUT + date + "(" + context + ")"));
-	return (date);
+		throw (errorException(E_MSG_BAD_INPUT + date + " (" + context + ")"));
+	tm result;
+	result.tm_year = atoi(dateValue[0].c_str());
+	result.tm_mon = atoi(dateValue[1].c_str());
+	result.tm_mday = atoi(dateValue[2].c_str());
+	return (result);
 }
 
 //csv parser (format : date,exchange_rate)
 BitcoinExchange csvParser(void) {
-	std::map<std::string, double> valueMap;
+	std::map<tm, double, compareDate> valueMap;
 
 	std::ifstream file(CSVPATH);
 	std::string	line;
@@ -75,7 +80,7 @@ BitcoinExchange csvParser(void) {
 		std::string	value = line.substr(commaPos + 1);
 		if (date.empty() || value.empty())
 			throw (errorException("CSV parsing error : " + line + " -> " + std::string(CSVPATH)));
-		std::string resultDate = dateParser(date, std::string(CSVPATH));
+		tm resultDate = dateParser(date, std::string(CSVPATH));
 		double resultValue = std::strtod(value.c_str(), NULL);
 		valueMap[resultDate] = resultValue;
 		i++;
@@ -99,7 +104,7 @@ int main(int argc, char const *argv[])
 			throw (errorException("Could not open file : " + std::string(argv[1])));
 		std::string inputFilePath = argv[1];
 		BitcoinExchange btc = csvParser();
-		//btc.printCsv();
+		btc.printCsv();
 		getline(file, line);
 		if (line != "date | value")
 			throw (errorException("Invalid txt header : " + std::string(argv[1])));

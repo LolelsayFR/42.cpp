@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:56:23 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/26 16:42:48 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/28 10:11:32 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
+#include <ctime>
 
 #define CSVPATH "./data.csv"
 #define ERROR_PREFIX "Error : "
@@ -46,23 +47,36 @@ private :
 };
 
 /* ************************************************************************** */
-/* Class */
+/* Struct & Class */
 /* ************************************************************************** */
+
+// simple comparison function
+struct compareDate {
+	bool operator()(const tm &x, const tm &y) const;
+};
+
 
 class BitcoinExchange
 {
 private:
-	std::map<std::string, double> dataMap;
+	std::map<tm, double, compareDate> dataMap;
 	BitcoinExchange();
 public:
-	BitcoinExchange(std::map<std::string, double> data);
+	BitcoinExchange(std::map<tm, double, compareDate> data);
+	BitcoinExchange(std::map<tm, double> data);
 	~BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange& operator=(const BitcoinExchange& other);
 	void lineIter(std::string line, std::string context);
+	void printCsv(void);
 };
 
-std::string dateParser(std::string date, std::string context);
+/* ************************************************************************** */
+/* Other */
+/* ************************************************************************** */
+
+tm dateParser(std::string date, std::string context);
+bool operator<(const tm &a, const tm &b);
 
 /* ************************************************************************** */
 /* End of file */
