@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 11:58:29 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 11:41:44 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/31 04:07:42 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int main(int argc, char const *argv[])
 	std::cout.precision(10);
 	try {
 		if (argc != 2)
-			throw (errorException("Invalid number of arguments"));
+			throw (errorException(E_MSG_NBARG));
 		std::ifstream file(argv[1]);
 		std::string	line;
 		if (!file.is_open())

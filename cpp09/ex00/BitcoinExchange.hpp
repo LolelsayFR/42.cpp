@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:56:23 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 12:26:03 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/31 04:07:53 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 #define E_MSG_BAD_INPUT_YO "bad input (Year int overflow) => "
 #define E_MSG_NEGATIVE_VALUE "not a positive number."
 #define E_MSG_TOO_LARGE_VALUE "too large a number."
+#define E_MSG_NBARG "invalid arg's number."
 
 /* ************************************************************************** */
 /* Exception */
