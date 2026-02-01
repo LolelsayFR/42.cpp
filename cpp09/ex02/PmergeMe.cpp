@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:37 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/31 07:20:05 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/01 17:54:21 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,124 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 	this->deque = other.deque;
 	this->vector = other.vector;
 	return (*this);
+}
+
+/* ************************************************************************** */
+/* Ford Jhonson utils fonctions */
+/* ************************************************************************** */
+
+std::vector<size_t> getJacobsthalList(size_t size) {
+	std::vector<size_t> result;
+	result.push_back(0);
+	result.push_back(1);	
+	for (size_t i = 2; i <= size; i++) {
+		result.push_back(result[i - 1] + 2 * result[i - 2]);
+	}
+	return (result);
+}
+
+void printCon(std::vector<unsigned int> con) {
+	for (	std::vector<unsigned int>::iterator it = con.begin(); it != con.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
+void printCon(std::deque<unsigned int> con) {
+	for (	std::deque<unsigned int>::iterator it = con.begin(); it != con.end(); it++) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
+void mergeCon(std::vector<unsigned int>& container, std::vector<unsigned int>& other) {
+	size_t index = 0;
+    std::vector<size_t> jacobIndices = getJacobsthalList(other.size());
+    std::vector<size_t> order;
+	for (std::vector<size_t>::iterator it = jacobIndices.begin(); it != jacobIndices.end(); ++it) {
+		if (*it < other.size())
+			order.push_back(*it);
+	}
+	for (	std::vector<unsigned int>::iterator it = other.begin(); it != other.end(); it++) {
+		std::vector<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[index]);
+		container.insert(pos, *it);
+	}
+}
+
+void mergeCon(std::deque<unsigned int>& container, std::deque<unsigned int>& other) {
+	size_t index = 0;
+    std::vector<size_t> jacobIndices = getJacobsthalList(other.size());
+    std::deque<size_t> order;
+	for (std::vector<size_t>::iterator it = jacobIndices.begin(); it != jacobIndices.end(); ++it) {
+		if (*it < other.size())
+			order.push_back(*it);
+	}
+	for (	std::deque<unsigned int>::iterator it = other.begin(); it != other.end(); it++) {
+		std::deque<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[index]);
+		container.insert(pos, *it);
+	}
+}
+
+void sortCon(std::vector<unsigned int>& container) {
+	int i = 0;
+	if (container.size() <= 1)
+		return ;
+	std::vector<unsigned int> main; 
+	std::vector<unsigned int> pending; 
+	std::vector<unsigned int>::iterator oldIt = container.begin();
+	for (std::vector<unsigned int>::iterator it = container.begin(); it != container.end(); i++, it++) {
+		if (i % 2 == 0){
+			oldIt = it;
+			continue;
+		}
+		main.push_back(*oldIt < *it ? *oldIt : *it);
+		pending.push_back(*oldIt > *it ? *oldIt : *it);
+	}
+	if (container.size() % 2 == 1)
+		pending.push_back(*(container.end()));
+	sortCon(main);
+	mergeCon(main, pending);
+	container = main;
+}
+
+void sortCon(std::deque<unsigned int>& container) {
+	int i = 0;
+	if (container.size() <= 1)
+		return ;
+	std::deque<unsigned int> main; 
+	std::deque<unsigned int> pending; 
+	std::deque<unsigned int>::iterator oldIt = container.begin();
+	for (std::deque<unsigned int>::iterator it = container.begin(); it != container.end(); i++, it++) {
+		if (i % 2 == 0){
+			oldIt = it;
+			continue;
+		}
+		main.push_back(*oldIt < *it ? *oldIt : *it);
+		pending.push_back(*oldIt > *it ? *oldIt : *it);
+	}
+	if (container.size() % 2 == 1)
+		pending.push_back(*(container.end()));
+	sortCon(main);
+	mergeCon(main, pending);
+	container = main;
+}
+
+/* ************************************************************************** */
+/* Ford Jhonson sort fonctions */
+/* ************************************************************************** */
+
+std::string PmergeMe::vecSort(void) {
+	std::string result;
+	sortCon(this->vector);
+	printCon(this->vector);
+
+	return (result);
+}
+
+std::string PmergeMe::dequeSort(void) {
+	std::string result;
+	sortCon(this->deque);
+	printCon(this->deque);
+
+	return (result);
 }
