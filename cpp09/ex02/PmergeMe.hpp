@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:16 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/31 07:20:08 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:35:39 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 #include <vector>
 #include <deque>
+#include <algorithm>
 #include <iostream>
 #include <cstdlib>
 #include <fstream>
@@ -59,7 +60,6 @@ public:
 	PmergeMe& operator=(const PmergeMe& other);
 	std::string vecSort(void);
 	std::string dequeSort(void);
-	std::string printSort();
 	~PmergeMe();
 };
 

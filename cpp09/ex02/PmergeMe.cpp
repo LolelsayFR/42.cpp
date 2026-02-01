@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:37 by emaillet          #+#    #+#             */
-/*   Updated: 2026/02/01 17:54:21 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:37:32 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,11 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 std::vector<size_t> getJacobsthalList(size_t size) {
 	std::vector<size_t> result;
 	result.push_back(0);
+	if (size == 0) 
+		return (result);
 	result.push_back(1);	
+	if (size == 1)
+		return (result);
 	for (size_t i = 2; i <= size; i++) {
 		result.push_back(result[i - 1] + 2 * result[i - 2]);
 	}
@@ -91,30 +95,44 @@ void printCon(std::deque<unsigned int> con) {
 }
 
 void mergeCon(std::vector<unsigned int>& container, std::vector<unsigned int>& other) {
-	size_t index = 0;
     std::vector<size_t> jacobIndices = getJacobsthalList(other.size());
     std::vector<size_t> order;
-	for (std::vector<size_t>::iterator it = jacobIndices.begin(); it != jacobIndices.end(); ++it) {
-		if (*it < other.size())
-			order.push_back(*it);
+	if (!other.empty())
+		order.push_back(0);
+	for (size_t i = 0; i < jacobIndices.size() - 1; ++i) {
+		size_t current = jacobIndices[i + 1];
+		size_t prev = jacobIndices[i];
+		if (current >= other.size())
+			current = other.size() - 1;
+		while (current > prev) {
+			order.push_back(current);
+			current--;
+		}
 	}
-	for (	std::vector<unsigned int>::iterator it = other.begin(); it != other.end(); it++) {
-		std::vector<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[index]);
-		container.insert(pos, *it);
+	for (std::vector<size_t>::iterator it = order.begin(); it != order.end(); ++it) {
+		std::vector<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[*it]);
+		container.insert(pos, other[*it]);
 	}
 }
 
 void mergeCon(std::deque<unsigned int>& container, std::deque<unsigned int>& other) {
-	size_t index = 0;
-    std::vector<size_t> jacobIndices = getJacobsthalList(other.size());
-    std::deque<size_t> order;
-	for (std::vector<size_t>::iterator it = jacobIndices.begin(); it != jacobIndices.end(); ++it) {
-		if (*it < other.size())
-			order.push_back(*it);
+	std::vector<size_t> jacobIndices = getJacobsthalList(other.size());
+	std::vector<size_t> order;
+	if (!other.empty())
+		order.push_back(0);
+	for (size_t i = 0; i < jacobIndices.size() - 1; ++i) {
+		size_t current = jacobIndices[i + 1];
+		size_t prev = jacobIndices[i];
+		if (current >= other.size())
+			current = other.size() - 1;
+		while (current > prev) {
+			order.push_back(current);
+			current--;
+		}
 	}
-	for (	std::deque<unsigned int>::iterator it = other.begin(); it != other.end(); it++) {
-		std::deque<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[index]);
-		container.insert(pos, *it);
+	for (std::vector<size_t>::iterator it = order.begin(); it != order.end(); ++it) {
+		std::deque<unsigned int>::iterator pos = std::lower_bound(container.begin(), container.end(), other[*it]);
+		container.insert(pos, other[*it]);
 	}
 }
 
@@ -130,11 +148,11 @@ void sortCon(std::vector<unsigned int>& container) {
 			oldIt = it;
 			continue;
 		}
-		main.push_back(*oldIt < *it ? *oldIt : *it);
-		pending.push_back(*oldIt > *it ? *oldIt : *it);
+		main.push_back(*oldIt > *it ? *oldIt : *it);
+		pending.push_back(*oldIt < *it ? *oldIt : *it);
 	}
-	if (container.size() % 2 == 1)
-		pending.push_back(*(container.end()));
+	if (container.size() % 2 == 1 && container.size() > 0)
+		pending.push_back(container.back());
 	sortCon(main);
 	mergeCon(main, pending);
 	container = main;
@@ -152,11 +170,11 @@ void sortCon(std::deque<unsigned int>& container) {
 			oldIt = it;
 			continue;
 		}
-		main.push_back(*oldIt < *it ? *oldIt : *it);
-		pending.push_back(*oldIt > *it ? *oldIt : *it);
+		main.push_back(*oldIt > *it ? *oldIt : *it);
+		pending.push_back(*oldIt < *it ? *oldIt : *it);
 	}
-	if (container.size() % 2 == 1)
-		pending.push_back(*(container.end()));
+	if (container.size() % 2 == 1 && container.size() > 0)
+		pending.push_back(container.back());
 	sortCon(main);
 	mergeCon(main, pending);
 	container = main;
