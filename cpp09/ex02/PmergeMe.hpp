@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:16 by emaillet          #+#    #+#             */
-/*   Updated: 2026/02/01 18:35:39 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/02 09:53:43 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 
 #include <vector>
 #include <deque>
-#include <algorithm>
+#include <ctime>
 #include <iostream>
 #include <cstdlib>
-#include <fstream>
-#include <cstring>
 #include <limits.h>
+#include <iomanip>
 
 #define CSVPATH "./data.csv"
 #define ERROR_PREFIX "Error: "
@@ -58,8 +57,8 @@ public:
 	PmergeMe(char** argv);
 	PmergeMe(const PmergeMe& other);
 	PmergeMe& operator=(const PmergeMe& other);
-	std::string vecSort(void);
-	std::string dequeSort(void);
+	void vecSort(void);
+	void dequeSort(void);
 	~PmergeMe();
 };
 

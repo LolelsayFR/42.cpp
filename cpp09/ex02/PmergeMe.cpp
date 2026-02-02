@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:37 by emaillet          #+#    #+#             */
-/*   Updated: 2026/02/01 19:12:12 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/02 10:23:59 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,11 @@ void mergeCon(T& container, T& other) {
 
 //Recusrive sort function
 template <typename T>
-void sortCon(T& container) {
+clock_t sortCon(T& container) {
+	clock_t t = clock();
 	int i = 0;
 	if (container.size() <= 1)
-		return ;
+		return (clock() - t);
 	T main; 
 	T pending; 
 	typename T::iterator oldIt = container.begin();
@@ -128,6 +129,7 @@ void sortCon(T& container) {
 	sortCon<T>(main);
 	mergeCon<T>(main, pending);
 	container = main;
+	return (clock() - t);
 }
 
 /* ************************************************************************** */
@@ -142,24 +144,45 @@ void printCon(T& con) {
 	}
 	std::cout << std::endl;
 }
+
 /* ************************************************************************** */
-/* Ford Jhonson sort fonctions */
+/* Sort and messages iteration */
 /* ************************************************************************** */
 
 //Vec sort iteration
-std::string PmergeMe::vecSort(void) {
-	std::string result;
-	sortCon<std::vector<unsigned int> >(this->vector);
+void PmergeMe::vecSort(void) {
+	
+	std::cout << "\e[1;34mBefore:\t";
 	printCon<std::vector<unsigned int> >(this->vector);
-
-	return (result);
+	clock_t t = sortCon<std::vector<unsigned int> >(this->vector);
+	std::cout << "\e[1;32mAfter:\t";
+	printCon<std::vector<unsigned int> >(this->vector);
+	std::cout	<< "\e[1;35mTime to process a range of "
+				<< this->vector.size()
+				<< std::setw(4)
+				<< " elements with std::vector<unsigned int>\t: "
+				<< std::fixed 
+				<< std::setprecision(6)
+				<< ((float)t) / CLOCKS_PER_SEC 
+				<< " us"
+				<< std::endl;
 }
 
 //Deque sort iteration
-std::string PmergeMe::dequeSort(void) {
-	std::string result;
-	sortCon<std::deque<unsigned int> >(this->deque);
-	printCon<std::deque<unsigned int> >(this->deque);
+void PmergeMe::dequeSort(void) {
+	clock_t t = sortCon<std::deque<unsigned int> >(this->deque);
 
-	return (result);
+	std::cout	<< "\e[1;31mTime to process a range of "
+				<< this->deque.size()
+				<< std::setw(4)
+				<< " elements with std::deque<unsigned int>\t: "
+				<< std::fixed 
+				<< std::setprecision(6)
+				<< ((float)t) / CLOCKS_PER_SEC 
+				<< " us\e[0m"
+				<< std::endl;
 }
+
+/* ************************************************************************** */
+/* End of file */
+/* ************************************************************************** */

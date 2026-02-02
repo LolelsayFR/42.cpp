@@ -6,14 +6,14 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:57:26 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/28 12:40:18 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/01/31 05:39:46 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 /* ************************************************************************** */
-/* Exception typedef */
+/* Exception */
 /* ************************************************************************** */
 
 errorException::errorException(std::string msg) throw(): msg(ERROR_PREFIX + msg) {};
