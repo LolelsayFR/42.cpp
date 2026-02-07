@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 17:57:26 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/31 05:39:46 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/07 15:27:00 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ bool operator==(const tm &a, const tm &b) {
 /* ************************************************************************** */
 
 //print util
-void printResult(tm date, int base, double value) {
+void printResult(tm date, double base, double value) {
 			std::cout << std::setw(4) << std::setfill('0') << date.tm_year << '-'
 				<< std::setw(2) << std::setfill('0') << date.tm_mon << '-'
 				<< std::setw(2) << std::setfill('0') << date.tm_mday

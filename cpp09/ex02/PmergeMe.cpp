@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:33:37 by emaillet          #+#    #+#             */
-/*   Updated: 2026/02/05 12:53:59 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/07 15:12:08 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,29 +81,37 @@ T getJacobsthalList(size_t size) {
 	return (result);
 }
 
+// Insertion order plan (same size as all other container)
+template <typename T>
+T getOrderList(size_t size) {
+    T jacobIndices = getJacobsthalList<T>(size);
+    T order;
+    if (size == 0)
+        return (order);
+    order.push_back(0);
+    for (size_t i = 0; i < jacobIndices.size() - 1; ++i) {
+        size_t current = jacobIndices[i + 1];
+        size_t prev = jacobIndices[i];
+        if (current >= size) // Protection
+            current = size - 1;
+        while (current > prev) {
+            if (current != 0)
+                order.push_back(current); 
+            current--;
+        }
+    }
+    return (order);
+}
 
-//Ford jhonson merge insertion function
+// Ford-Johnson merge insertion function
 template <typename T>
 void mergeCon(T& container, T& other) {
-	T jacobIndices = getJacobsthalList<T>(other.size());
-	T order;
-	if (!other.empty())
-		order.push_back(0);
-	for (size_t i = 0; i < jacobIndices.size() - 1; ++i) {
-		size_t current = jacobIndices[i + 1];
-		size_t prev = jacobIndices[i];
-		if (current >= other.size())
-			current = other.size() - 1;
-		while (current > prev) {
-			if (current != 0)
-				order.push_back(current);
-			current--;
-		}
-	}
-	for (typename T::iterator it = order.begin(); it != order.end(); ++it) {
-		typename T::iterator pos = std::lower_bound(container.begin(), container.end(), other[*it]);
-		container.insert(pos, other[*it]);
-	}
+    T order = getOrderList<T>(other.size());
+    
+    for (typename T::iterator it = order.begin(); it != order.end(); ++it) {
+        typename T::iterator pos = std::lower_bound(container.begin(), container.end(), other[*it]);
+        container.insert(pos, other[*it]);
+    }
 }
 
 //Recusrive sort function

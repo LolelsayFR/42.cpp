@@ -6,7 +6,7 @@
 /*   By: emaillet <emaillet@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:18:43 by emaillet          #+#    #+#             */
-/*   Updated: 2026/01/31 04:53:51 by emaillet         ###   ########.fr       */
+/*   Updated: 2026/02/07 15:25:38 by emaillet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,8 @@ void RPN::calculate(std::string calcul) {
 				break;
 		}
 	}
-	if (stack.size() > 1) {
-		std::cout << "Unused : ";
-		while (stack.size() > 1) {std::cout << this->stack.top() << " "; this->stack.pop();}
-		std::cout << std::endl;
-	}
 	std::cout << this->stack.top() << std::endl;
+	this->stack.pop();
 }
 
 bool RPN::verify(std::string calcul) {
